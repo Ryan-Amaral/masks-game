@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjy74ch4fs78k"]
 
 [ext_resource type="Script" uid="uid://r8kpqv1j0k7w" path="res://assets/scripts/Platform.cs" id="1_1lhc6"]
+[ext_resource type="PackedScene" uid="uid://vwnwcocsvhc5" path="res://scenes/imp.tscn" id="2_3kaxs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uaj1n"]
 
@@ -14,19 +15,6 @@ albedo_color = Color(0.23921569, 0.27450982, 0.9372549, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhmfw"]
 albedo_color = Color(0.23921569, 0.27450982, 0.9372549, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_8pl3h"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_go7lw"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_4v1qi"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1lhc6"]
-lifetime_randomness = 0.04
-
-[sub_resource type="QuadMesh" id="QuadMesh_3kaxs"]
-size = Vector2(0.05, 0.05)
 
 [node name="Test Scene" type="Node3D" unique_id=97275857]
 
@@ -43,7 +31,7 @@ mesh = SubResource("BoxMesh_1lhc6")
 surface_material_override/0 = SubResource("StandardMaterial3D_3kaxs")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=893372225]
-transform = Transform3D(1, 0, 0, 0, 0.67912114, 0.7340263, 0, -0.7340263, 0.67912114, 0, 1.6676716, 2.5915241)
+transform = Transform3D(1, 0, 0, 0, 0.67912114, 0.7340263, 0, -0.7340263, 0.67912114, 0, 0.9146371, 2.2250605)
 
 [node name="Platform1" type="StaticBody3D" parent="." unique_id=1502776356 node_paths=PackedStringArray("TheMesh", "Collider")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52621424, -0.9884834)
@@ -73,24 +61,8 @@ shape = SubResource("BoxShape3D_uaj1n")
 mesh = SubResource("BoxMesh_1lhc6")
 surface_material_override/0 = SubResource("StandardMaterial3D_xhmfw")
 
-[node name="Imp" type="RigidBody3D" parent="." unique_id=481507126]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25336552, 1.1625963)
-linear_damp = 1.19
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Imp" unique_id=2033942784]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-visible = false
-mesh = SubResource("SphereMesh_8pl3h")
-surface_material_override/0 = SubResource("StandardMaterial3D_go7lw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Imp" unique_id=947546604]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-shape = SubResource("SphereShape3D_4v1qi")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Imp" unique_id=1963601933]
-visible = false
-process_material = SubResource("ParticleProcessMaterial_1lhc6")
-draw_pass_1 = SubResource("QuadMesh_3kaxs")
+[node name="Imp" parent="." unique_id=1741731338 instance=ExtResource("2_3kaxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43541622, 1.7110258)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1329234546]
 transform = Transform3D(0.8127551, 0.4145802, 0.4093314, -0.5818127, 0.6142031, 0.53314936, -0.030379515, -0.6714742, 0.74040496, 0, 3.0981452, 1.3176477)
