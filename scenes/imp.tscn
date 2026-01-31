@@ -11,6 +11,11 @@
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("2_l5ehi")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_1lhc6"]
 material = SubResource("StandardMaterial3D_1lhc6")
@@ -109,7 +114,7 @@ scale_amount_curve = SubResource("Curve_3kaxs")
 [node name="Area3D" type="Area3D" parent="." unique_id=1677135997]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=291516315]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
 shape = SubResource("SphereShape3D_4tr2i")
 
 [node name="model" type="Node3D" parent="." unique_id=1066624729]
@@ -121,3 +126,4 @@ mesh = SubResource("ArrayMesh_h7qki")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="model" unique_id=2099494440]
 libraries/ = SubResource("AnimationLibrary_jylet")
+autoplay = &"fly"
