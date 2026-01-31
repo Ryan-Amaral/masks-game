@@ -17,6 +17,7 @@ public class MasksController
 	 {
 		  Masks[maskId] = true;
 		  EventHandler.OnMaskUnlocked?.Invoke(maskId);
+		  SwitchMask(maskId);
 	 }
 
 	 public void SwitchMask(int maskId)
@@ -25,6 +26,7 @@ public class MasksController
 		  {
 			   SelectedMask = 0;
 			   EventHandler.OnMaskSelected?.Invoke(0);
+			   GameManager.CurrentMask = 0;
 			   return;
 		  }
 		  
@@ -32,25 +34,31 @@ public class MasksController
 		  {
 			   SelectedMask = maskId;
 			   EventHandler.OnMaskSelected?.Invoke(maskId); 
+			   GameManager.CurrentMask = maskId;
 		  }
 		  else
 		  {
 			   SelectedMask = 0;
 			   EventHandler.OnMaskSelected?.Invoke(0);
+			   GameManager.CurrentMask = 0;
 		  }
 	 }
 
 	 public void HandleInput(InputEvent @event)
 	 {
-		  if (Input.IsActionPressed("slot_1"))
-		  {
-			   SwitchMask(1);
-		  } else if (Input.IsActionPressed("slot_2"))
-		  {
-			   SwitchMask(2);
-		  } else if (Input.IsActionPressed("slot_3"))
-		  {
-			   SwitchMask(3);
-		  } 
+		 if (@event is InputEventKey key)
+		 {
+			 if (key.IsActionPressed("slot_1"))
+			 {
+				 SwitchMask(1);
+			 } else if (key.IsActionPressed("slot_2"))
+			 {
+				 SwitchMask(2);
+			 } else if (key.IsActionPressed("slot_3"))
+			 {
+				 SwitchMask(3);
+			 } 
+		 }
+
 	 }
 }

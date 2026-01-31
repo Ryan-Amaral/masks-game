@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cexouovf1tpnv"]
 
-[ext_resource type="Script" uid="uid://voa2pgb1g7rx" path="res://scripts/MasksInventory.cs" id="1_hj2ta"]
+[ext_resource type="Script" uid="uid://voa2pgb1g7rx" path="res://assets/scripts/player/MasksInventory.cs" id="1_hj2ta"]
 [ext_resource type="PackedScene" uid="uid://c6o0tcpn3weua" path="res://scenes/maskItemSlot.tscn" id="1_qw0r6"]
 
 [node name="PanelContainer" type="PanelContainer" unique_id=1378944131]

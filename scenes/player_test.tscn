@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cexouovf1tpnv" path="res://scenes/inventory.tscn" id="1_6p80c"]
 [ext_resource type="PackedScene" uid="uid://becfv4yrchxul" path="res://scenes/player.tscn" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://dvi3nigc4rlfg" path="res://scenes/mask.tscn" id="2_fdpfy"]
+[ext_resource type="PackedScene" uid="uid://brkn8ufnrg5ql" path="res://scenes/platform.tscn" id="4_8ut53"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
 
@@ -23,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00894165, -0.529, -0.01843
 shape = SubResource("BoxShape3D_errlg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floo" unique_id=1950519925]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -0.5, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0.043475628, -0.49999952, 0.017785788)
 mesh = SubResource("BoxMesh_bl13t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
@@ -42,3 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, -2.6443
 MaskId = 3
 
 [node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
+
+[node name="Platform1" parent="." unique_id=1462589162 instance=ExtResource("4_8ut53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6489048, -10.991346)
+DefaultOn = false

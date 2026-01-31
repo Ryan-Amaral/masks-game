@@ -21,7 +21,6 @@ public partial class MasksInventory : Control
 	public void Unlock(int maskId)
 	{
 		Slots[maskId-1].Show();
-		Update(maskId);
 	}
 
 	public void Update(int selectedMask)

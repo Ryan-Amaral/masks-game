@@ -67,21 +67,27 @@ public partial class Player : CharacterBody3D
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (Input.IsActionPressed("esc"))
+		if (@event is InputEventKey key)
 		{
-			Input.SetMouseMode(Input.MouseModeEnum.Visible);
-			Captured = false;
-
-		} else if (Input.IsActionPressed("interact"))
-		{
-			if (!Captured)
+			if( key.IsActionPressed("esc") )
 			{
-				Input.SetMouseMode(Input.MouseModeEnum.Captured);
-				Captured = true;
-			} else if (CurrentInteractable != null)
-			{
-				CurrentInteractable.Interact(this);
+				Input.SetMouseMode(Input.MouseModeEnum.Visible);
+				Captured = false;
 			}
+			
+			if ( key.IsActionPressed("interact") )
+			{
+				if (!Captured)
+				{
+					Input.SetMouseMode(Input.MouseModeEnum.Captured);
+					Captured = true;
+				} else if (CurrentInteractable != null)
+				{
+					CurrentInteractable.Interact(this);
+				}
+			}
+
+
 		}
 		
 		if (Captured && @event is InputEventMouseMotion eventMouseMotion)

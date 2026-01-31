@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6o0tcpn3weua"]
 
-[ext_resource type="Script" uid="uid://xy3bdrpudflr" path="res://scripts/MaskItemSlot.cs" id="1_d4w71"]
+[ext_resource type="Script" uid="uid://xy3bdrpudflr" path="res://assets/scripts/player/MaskItemSlot.cs" id="1_d4w71"]
 [ext_resource type="Texture2D" uid="uid://bs4f4wbdcg0tv" path="res://icon.svg" id="1_quhof"]
 
 [node name="Mask" type="Control" unique_id=1319152524]

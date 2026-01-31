@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvi3nigc4rlfg"]
 
-[ext_resource type="Script" uid="uid://q71f1w6ij82a" path="res://scripts/MaskInteract.cs" id="1_in0c2"]
+[ext_resource type="Script" uid="uid://q71f1w6ij82a" path="res://assets/scripts/player/MaskInteract.cs" id="1_in0c2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_74lek"]
 

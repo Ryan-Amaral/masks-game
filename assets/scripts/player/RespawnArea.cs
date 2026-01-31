@@ -1,14 +1,18 @@
 using Godot;
 using System;
 
-public partial class GameManager : Node
+public partial class RespawnArea : Area3D
 {
-	// 0 is None, 1,2... corresponds to the order masks are found.
-	public static int CurrentMask = 0;
-	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Connect(Area3D.SignalName.BodyEntered, new Callable(this, nameof(OnAreaEntered)));
+
+	}
+
+	public void OnAreaEntered(Node3D node)
+	{
+		GD.Print("OnAreaEntered " +node);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
