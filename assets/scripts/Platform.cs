@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Platform : Node
+public partial class Platform : StaticBody3D
 {
 	[Export] public MeshInstance3D TheMesh;
 	[Export] public CollisionShape3D Collider;
@@ -31,6 +31,7 @@ public partial class Platform : Node
 		
 		enabled = !(DefaultOn == isMaskActive);
 		TheMesh.Visible = enabled;
-		Collider.Disabled = !(enabled);
+		Collider.Disabled = !enabled;
+		GD.Print("enabled: ", enabled);
 	}
 }
