@@ -21,7 +21,7 @@ public partial class WallCrumble : Node3D
 			if (brick is RigidBody3D rb)
 			{
 				rb.Freeze = false;
-				rb.ApplyImpulse((new Vector3(GD.Randf(),GD.Randf(),GD.Randf())).Normalized() *100f );
+				rb.ApplyImpulse((new Vector3((float)GD.RandRange(-1f,1f),(float)GD.RandRange(-1f,1f),(float)GD.RandRange(-1f,1f))).Normalized() *100f );
 			}
 		}
 		Collider.Disabled = true;
