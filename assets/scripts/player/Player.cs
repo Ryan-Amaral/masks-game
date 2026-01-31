@@ -7,6 +7,7 @@ public partial class Player : CharacterBody3D
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 	[Export]private float LookSpeed = 0.002f;
+	[Export]private float ThrowForce = 15f;
 	
 	private Vector2 LookRotation;
 	private bool Captured = true;
@@ -14,15 +15,23 @@ public partial class Player : CharacterBody3D
 	private Node3D Head;
 	private RayCast3D RayCast;
 	private Label InteractTip;
+	private Node3D HeldItemNode;
 	
 	private IInteractable CurrentInteractable;
 	private MasksController MasksController = new MasksController();
+	private IThrowable CurrentThrowable;
+
+	private float HoldCounter = 0;
+	[Export]private float ThrowingThreshold = 0.5f;
+	private bool Interacted = false;
+	
 	public override void _Ready()
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 		Head = GetNode<Node3D>("Head");
 		RayCast = GetNode<RayCast3D>("Head/Camera/RayCast");
 		InteractTip = GetNode<Label>("InteractTip");
+		HeldItemNode = GetNode<Node3D>("Head/Camera/HeldItemNode");
 	}
 
 	public override void _Process(double delta)
@@ -53,6 +62,7 @@ public partial class Player : CharacterBody3D
 			CancelInteratable();
 		}
 
+		HandleInteractKey((float)delta);
 	}
 
 	private void CancelInteratable()
@@ -75,20 +85,9 @@ public partial class Player : CharacterBody3D
 				Captured = false;
 			}
 			
-			if ( key.IsActionPressed("interact") )
-			{
-				if (!Captured)
-				{
-					Input.SetMouseMode(Input.MouseModeEnum.Captured);
-					Captured = true;
-				} else if (CurrentInteractable != null)
-				{
-					CurrentInteractable.Interact(this);
-				}
-			}
-
-
+			
 		}
+
 		
 		if (Captured && @event is InputEventMouseMotion eventMouseMotion)
 		{
@@ -96,6 +95,45 @@ public partial class Player : CharacterBody3D
 		}
 
 		MasksController.HandleInput(@event);
+	}
+
+	private void HandleInteractKey(float delta)
+	{
+		bool justPressed = Input.IsActionJustPressed("interact");
+		bool released = Input.IsActionJustReleased("interact");
+		bool pressed = Input.IsActionPressed("interact");
+		if (justPressed)
+		{
+			if (!Captured)
+			{
+				Input.SetMouseMode(Input.MouseModeEnum.Captured);
+				Captured = true;
+			} else if (CurrentInteractable != null)
+			{
+				CurrentInteractable.Interact(this);
+				Interacted = true;
+			}
+		}
+
+		if (pressed)
+		{
+			HoldCounter += delta;
+		}
+
+		if (released)
+		{
+			if (!Interacted && CurrentThrowable != null && HoldCounter < ThrowingThreshold)
+			{
+				CurrentThrowable.Drop();
+			} else if (!Interacted && CurrentThrowable != null && HoldCounter >= ThrowingThreshold)
+			{
+				Vector3 dir = (RayCast.GlobalTransform.Basis * RayCast.TargetPosition).Normalized();
+				CurrentThrowable.Throw(dir,ThrowForce);
+			}
+			
+			Interacted = false;
+			HoldCounter = 0;
+		}
 	}
 
 	private void RotateLook(Vector2 motion)
@@ -156,5 +194,16 @@ public partial class Player : CharacterBody3D
 	{
 		GD.Print(maskId + " added.");
 		MasksController.Add(maskId);
+	}
+
+	public void PickUp(IThrowable throwable)
+	{
+		if (CurrentThrowable != null)
+		{
+			CurrentThrowable.Drop();
+		}
+		
+		CurrentThrowable = throwable;
+		CurrentThrowable.Attach(HeldItemNode);
 	}
 }

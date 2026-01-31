@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rvd6npg7umat"]
 
-[ext_resource type="Script" uid="uid://b7dqc8xccd8di" path="res://assets/scripts/player/RespawnArea.cs" id="1_7f5re"]
+[ext_resource type="Script" uid="uid://b7dqc8xccd8di" path="res://assets/scripts/respawn/RespawnArea.cs" id="1_7f5re"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ue4q"]
 size = Vector3(5, 1, 20)

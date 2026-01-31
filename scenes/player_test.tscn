@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rvd6npg7umat" path="res://scenes/respawn_area.tscn" id="4_4fwf8"]
 [ext_resource type="PackedScene" uid="uid://brkn8ufnrg5ql" path="res://scenes/platform.tscn" id="5_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://cyhmcqvuilnbk" path="res://scenes/respawn_handler.tscn" id="6_dxymg"]
+[ext_resource type="PackedScene" uid="uid://uqnvbyjmvk7l" path="res://scenes/throwable.tscn" id="7_dxymg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
 
@@ -26,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00894165, -0.529, -0.01843
 shape = SubResource("BoxShape3D_errlg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floo" unique_id=1950519925]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0.043475628, -0.49999952, 0.017785788)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3692718, -0.49999952, 0.10921979)
 mesh = SubResource("BoxMesh_bl13t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
@@ -44,14 +45,16 @@ MaskId = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, -2.6443815)
 MaskId = 3
 
-[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
-
 [node name="RespawnArea" parent="." unique_id=52024483 instance=ExtResource("4_4fwf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175911, 0.5, 0.062446594)
 
 [node name="Platform1" parent="." unique_id=1462589162 instance=ExtResource("5_2ue4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1767869, -11.900967)
-DefaultOn = false
 
-[node name="RespawnHandler" parent="." unique_id=1606846992 instance=ExtResource("6_dxymg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.68284, 0)
+[node name="Throwable" parent="." unique_id=1106220271 instance=ExtResource("7_dxymg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9415293, 2.606895)
+
+[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
+
+[node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("6_dxymg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.061058, 0)
