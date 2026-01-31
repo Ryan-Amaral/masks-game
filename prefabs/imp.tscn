@@ -1,30 +1,16 @@
-[gd_scene format=4 uid="uid://4nkfglch8i0d"]
+[gd_scene format=4 uid="uid://vwnwcocsvhc5"]
 
-[ext_resource type="Script" uid="uid://r8kpqv1j0k7w" path="res://assets/scripts/Platform.cs" id="1_1lhc6"]
-[ext_resource type="Texture2D" uid="uid://b58rkeicln13t" path="res://assets/textures/explosion.png" id="2_3kaxs"]
-[ext_resource type="Script" uid="uid://cv8u2o3kmmtek" path="res://assets/scripts/Imp.cs" id="2_4tr2i"]
-[ext_resource type="Texture2D" uid="uid://bwbem6qdeb4tn" path="res://assets/models/imp_impmask.png" id="4_8pl3h"]
-[ext_resource type="Texture2D" uid="uid://bsf7nkl242or7" path="res://assets/models/imp_impmask_n.png" id="5_go7lw"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_uaj1n"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_1lhc6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kaxs"]
-albedo_color = Color(0.6431373, 0.27450982, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tr2i"]
-albedo_color = Color(0.23921569, 0.27450982, 0.9372549, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhmfw"]
-albedo_color = Color(0.23921569, 0.27450982, 0.9372549, 1)
+[ext_resource type="Script" uid="uid://cv8u2o3kmmtek" path="res://assets/scripts/Imp.cs" id="1_on17g"]
+[ext_resource type="Texture2D" uid="uid://b58rkeicln13t" path="res://assets/textures/explosion.png" id="2_l5ehi"]
+[ext_resource type="Texture2D" uid="uid://bwbem6qdeb4tn" path="res://assets/models/imp_impmask.png" id="3_k62im"]
+[ext_resource type="Texture2D" uid="uid://bsf7nkl242or7" path="res://assets/models/imp_impmask_n.png" id="4_uklg8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4v1qi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lhc6"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_3kaxs")
+albedo_texture = ExtResource("2_l5ehi")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1lhc6"]
 material = SubResource("StandardMaterial3D_1lhc6")
@@ -39,9 +25,9 @@ point_count = 7
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e43i2"]
 resource_name = "imp"
 cull_mode = 2
-albedo_texture = ExtResource("4_8pl3h")
+albedo_texture = ExtResource("3_k62im")
 normal_enabled = true
-normal_texture = ExtResource("5_go7lw")
+normal_texture = ExtResource("4_uklg8")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_thsrs"]
@@ -95,64 +81,19 @@ _data = {
 &"fly": SubResource("Animation_rbdta")
 }
 
-[node name="Test Scene" type="Node3D" unique_id=97275857]
-
-[node name="floor" type="Node3D" parent="." unique_id=101510583]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=1375976922]
-transform = Transform3D(4.0778008, 0, 0, 0, 0.08118576, 0, 0, 0, 4.518813, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=776506474]
-shape = SubResource("BoxShape3D_uaj1n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor/StaticBody3D" unique_id=332191690]
-mesh = SubResource("BoxMesh_1lhc6")
-surface_material_override/0 = SubResource("StandardMaterial3D_3kaxs")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=893372225]
-transform = Transform3D(1, 0, 0, 0, 0.67912114, 0.7340263, 0, -0.7340263, 0.67912114, 0, 0.9146371, 2.2250605)
-
-[node name="Platform1" type="StaticBody3D" parent="." unique_id=1502776356 node_paths=PackedStringArray("TheMesh", "Collider")]
-transform = Transform3D(0.5977395, 0, 0, 0, 0.08118576, 0, 0, 0, 0.90695995, 0, 0.52621424, -0.9884834)
-script = ExtResource("1_1lhc6")
-TheMesh = NodePath("MeshInstance3D")
-Collider = NodePath("CollisionShape3D")
-DefaultOn = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform1" unique_id=286950391]
-shape = SubResource("BoxShape3D_uaj1n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform1" unique_id=1398520396]
-mesh = SubResource("BoxMesh_1lhc6")
-surface_material_override/0 = SubResource("StandardMaterial3D_4tr2i")
-
-[node name="Platform2" type="StaticBody3D" parent="." unique_id=843942788 node_paths=PackedStringArray("TheMesh", "Collider")]
-transform = Transform3D(0.5977395, 0, 0, 0, 0.08118576, 0, 0, 0, 0.90695995, 0, 0.52621424, 0.37702417)
-script = ExtResource("1_1lhc6")
-TheMesh = NodePath("MeshInstance3D")
-Collider = NodePath("CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2" unique_id=449232799]
-shape = SubResource("BoxShape3D_uaj1n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2" unique_id=1286377602]
-mesh = SubResource("BoxMesh_1lhc6")
-surface_material_override/0 = SubResource("StandardMaterial3D_xhmfw")
-
-[node name="Imp" type="RigidBody3D" parent="." unique_id=481507126 node_paths=PackedStringArray("TriggerArea", "Particles", "TheMesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43541622, 1.7110258)
+[node name="Imp" type="RigidBody3D" unique_id=1741731338 node_paths=PackedStringArray("TriggerArea", "Particles", "TheMesh")]
 can_sleep = false
 linear_damp = 1.19
-script = ExtResource("2_4tr2i")
+script = ExtResource("1_on17g")
 TriggerArea = NodePath("Area3D")
 Particles = NodePath("CPUParticles3D")
 TheMesh = NodePath("model/mesh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Imp" unique_id=947546604]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=439164629]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("SphereShape3D_4v1qi")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Imp" unique_id=22422955]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=47976028]
 emitting = false
 amount = 36
 lifetime = 0.42
@@ -165,21 +106,18 @@ initial_velocity_min = 0.1
 initial_velocity_max = 0.5
 scale_amount_curve = SubResource("Curve_3kaxs")
 
-[node name="Area3D" type="Area3D" parent="Imp" unique_id=692401882]
+[node name="Area3D" type="Area3D" parent="." unique_id=1677135997]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Imp/Area3D" unique_id=315654533]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=291516315]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("SphereShape3D_4tr2i")
 
-[node name="model" type="Node3D" parent="Imp" unique_id=539484745]
+[node name="model" type="Node3D" parent="." unique_id=1066624729]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.073306106, -0.22058102, 0)
 
-[node name="mesh" type="MeshInstance3D" parent="Imp/model" unique_id=1575354713]
+[node name="mesh" type="MeshInstance3D" parent="model" unique_id=762215493]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h7qki")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Imp/model" unique_id=660407146]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="model" unique_id=2099494440]
 libraries/ = SubResource("AnimationLibrary_jylet")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1329234546]
-transform = Transform3D(0.8127551, 0.4145802, 0.4093314, -0.5818127, 0.6142031, 0.53314936, -0.030379515, -0.6714742, 0.74040496, 0, 3.0981452, 1.3176477)
