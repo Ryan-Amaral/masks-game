@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ed43vexo5mvx"]
+
+[ext_resource type="PackedScene" uid="uid://dq52ehps75tkg" path="res://maps/basemap.glb" id="1_chigq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_chigq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qsutq"]
+
+[node name="basemap" unique_id=756737242 instance=ExtResource("1_chigq")]
+
+[node name="Player" type="CharacterBody3D" parent="." index="9" unique_id=282618740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4721985, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" index="0" unique_id=608447912]
+shape = SubResource("CapsuleShape3D_chigq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" index="1" unique_id=774306537]
+mesh = SubResource("CapsuleMesh_qsutq")
