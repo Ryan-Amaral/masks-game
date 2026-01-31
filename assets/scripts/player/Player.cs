@@ -125,10 +125,12 @@ public partial class Player : CharacterBody3D
 			if (!Interacted && CurrentThrowable != null && HoldCounter < ThrowingThreshold)
 			{
 				CurrentThrowable.Drop();
+				CurrentThrowable = null;
 			} else if (!Interacted && CurrentThrowable != null && HoldCounter >= ThrowingThreshold)
 			{
 				Vector3 dir = (RayCast.GlobalTransform.Basis * RayCast.TargetPosition).Normalized();
 				CurrentThrowable.Throw(dir,ThrowForce);
+				CurrentThrowable = null;
 			}
 			
 			Interacted = false;

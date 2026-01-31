@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3ie2cfe2aib3"]
+
+[ext_resource type="PackedScene" uid="uid://dwn813m5h1lfd" path="res://scenes/maskInteractable.tscn" id="1_3ouuq"]
+[ext_resource type="PackedScene" uid="uid://ba1c7vd1ciuye" path="res://assets/masks/mask2.glb" id="2_uf53e"]
+
+[node name="mask3" unique_id=913143854 instance=ExtResource("1_3ouuq")]
+MaskId = 3
+
+[node name="mask22" parent="." index="0" unique_id=1907893155 instance=ExtResource("2_uf53e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.73445797, 0)

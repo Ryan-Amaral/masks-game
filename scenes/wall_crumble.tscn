@@ -1,25 +1,8 @@
-[gd_scene format=4 uid="uid://cptjcgc8pr8jx"]
+[gd_scene format=4 uid="uid://ctcan3njvkhm4"]
 
-[ext_resource type="PackedScene" uid="uid://cexouovf1tpnv" path="res://scenes/inventory.tscn" id="1_6p80c"]
-[ext_resource type="PackedScene" uid="uid://becfv4yrchxul" path="res://scenes/player.tscn" id="1_bl13t"]
-[ext_resource type="PackedScene" uid="uid://rvd6npg7umat" path="res://scenes/respawn_area.tscn" id="4_4fwf8"]
-[ext_resource type="PackedScene" uid="uid://brkn8ufnrg5ql" path="res://scenes/platform.tscn" id="5_2ue4q"]
-[ext_resource type="PackedScene" uid="uid://cyhmcqvuilnbk" path="res://scenes/respawn_handler.tscn" id="6_dxymg"]
-[ext_resource type="PackedScene" uid="uid://uqnvbyjmvk7l" path="res://scenes/throwable.tscn" id="7_dxymg"]
-[ext_resource type="PackedScene" uid="uid://du5qxhw3jd3fp" path="res://scenes/masks/mask_2.tscn" id="7_ged13"]
-[ext_resource type="PackedScene" uid="uid://c3ie2cfe2aib3" path="res://scenes/masks/mask_3.tscn" id="8_ad58j"]
-[ext_resource type="PackedScene" uid="uid://d3bu1g72sws2e" path="res://scenes/masks/mask_1.tscn" id="9_qtbut"]
-[ext_resource type="Script" uid="uid://bjayhf84x7gue" path="res://assets/scripts/interactable/WallCrumble.cs" id="10_l6nol"]
-[ext_resource type="Texture2D" uid="uid://brlj4l0i7h7lj" path="res://assets/wall/breakwall_interior.png" id="10_qtbut"]
-[ext_resource type="Texture2D" uid="uid://di85x02af2tcl" path="res://assets/wall/breakwall_interior_n.png" id="11_l6nol"]
-[ext_resource type="PackedScene" path="res://scenes/imp.tscn" id="13_e1poy"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_errlg"]
-size = Vector3(20.152039, 1, 19.990234)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bl13t"]
+[ext_resource type="Script" uid="uid://bjayhf84x7gue" path="res://assets/scripts/interactable/WallCrumble.cs" id="1_h87s3"]
+[ext_resource type="Texture2D" uid="uid://brlj4l0i7h7lj" path="res://assets/wall/breakwall_interior.png" id="2_yt6qn"]
+[ext_resource type="Texture2D" uid="uid://di85x02af2tcl" path="res://assets/wall/breakwall_interior_n.png" id="3_ss63o"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tuphm"]
 data = PackedVector3Array(-6.234923, 9.724611, -0.67025566, -6.415808, 6.355232, 0.88386726, -6.415808, 5.715078, -0.71613884, -6.234923, 9.724611, -0.67025566, -6.234923, 9.724779, 0.92975044, -6.415808, 6.355232, 0.88386726, -2.4164643, 5.7151227, -0.71613884, -1.8572831, 7.474111, 0.88386726, -1.6436296, 7.2604957, -0.71613884, -2.4164643, 5.7151227, -0.71613884, -2.4167542, 6.355413, 0.88386726, -1.8572831, 7.474111, 0.88386726, -1.8572831, 7.474111, 0.88386726, -6.234923, 9.724779, 0.92975044, -4.416266, 10.03355, 0.88386726, -6.234923, 9.724779, 0.92975044, -2.4167542, 6.355413, 0.88386726, -6.415808, 6.355232, 0.88386726, -6.234923, 9.724779, 0.92975044, -1.8572831, 7.474111, 0.88386726, -2.4167542, 6.355413, 0.88386726, -6.415808, 5.715078, -0.71613884, -2.4167542, 6.355413, 0.88386726, -2.4164643, 5.7151227, -0.71613884, -6.415808, 5.715078, -0.71613884, -6.415808, 6.355232, 0.88386726, -2.4167542, 6.355413, 0.88386726, -1.8572831, 7.474111, 0.88386726, -4.416701, 10.033413, -0.71613884, -1.6436296, 7.2604957, -0.71613884, -1.8572831, 7.474111, 0.88386726, -4.416266, 10.03355, 0.88386726, -4.416701, 10.033413, -0.71613884, -4.416701, 10.033413, -0.71613884, -2.4164643, 5.7151227, -0.71613884, -1.6436296, 7.2604957, -0.71613884, -2.4164643, 5.7151227, -0.71613884, -6.234923, 9.724611, -0.67025566, -6.415808, 5.715078, -0.71613884, -2.4164643, 5.7151227, -0.71613884, -4.416701, 10.033413, -0.71613884, -6.234923, 9.724611, -0.67025566, -6.234923, 9.724779, 0.92975044, -4.416701, 10.033413, -0.71613884, -4.416266, 10.03355, 0.88386726, -6.234923, 9.724779, 0.92975044, -6.234923, 9.724611, -0.67025566, -4.416701, 10.033413, -0.71613884)
@@ -27,9 +10,9 @@ data = PackedVector3Array(-6.234923, 9.724611, -0.67025566, -6.415808, 6.355232,
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egyog"]
 resource_name = "interior"
 cull_mode = 2
-albedo_texture = ExtResource("10_qtbut")
+albedo_texture = ExtResource("2_yt6qn")
 normal_enabled = true
-normal_texture = ExtResource("11_l6nol")
+normal_texture = ExtResource("3_ss63o")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_aldnt"]
@@ -382,183 +365,136 @@ data = PackedVector3Array(1.48105, 0.034134388, 0.3400135, 1.5836806, 0.03413438
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
 size = Vector3(12.305, 12.755, 2.34)
 
-[node name="Test" type="Node3D" unique_id=260905495]
+[node name="WallCrumble" type="Node3D" unique_id=1909280433]
+script = ExtResource("1_h87s3")
 
-[node name="Player" parent="." unique_id=1403425153 instance=ExtResource("1_bl13t")]
+[node name="breakwall" type="Node3D" parent="." unique_id=1594069030]
 
-[node name="floo" type="StaticBody3D" parent="." unique_id=787823536]
-collision_layer = 3
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_errlg")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floo" unique_id=240739333]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00894165, -0.529, -0.018432617)
-shape = SubResource("BoxShape3D_errlg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floo" unique_id=1950519925]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3692718, -0.49999952, 0.10921979)
-mesh = SubResource("BoxMesh_bl13t")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
-transform = Transform3D(1, 0, 0, 0, 0.3364872, 0.94168806, 0, -0.94168806, 0.3364872, 0, 9.496563, 0)
-
-[node name="RespawnArea" parent="." unique_id=52024483 instance=ExtResource("4_4fwf8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175911, 0.5, 0.062446594)
-
-[node name="Platform1" parent="." unique_id=1462589162 instance=ExtResource("5_2ue4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1767869, -11.900967)
-
-[node name="Throwable" parent="." unique_id=1106220271 instance=ExtResource("7_dxymg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9415293, 2.606895)
-
-[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
-
-[node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("6_dxymg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.061058, 0)
-
-[node name="mask2" parent="." unique_id=913143854 instance=ExtResource("7_ged13")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -3)
-
-[node name="mask3" parent="." unique_id=1003968624 instance=ExtResource("8_ad58j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
-
-[node name="Mask1" parent="." unique_id=1130035816 instance=ExtResource("9_qtbut")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1916933, 1.3102883, 0)
-
-[node name="WallCrumble" type="Node3D" parent="." unique_id=831861112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2914848, 0.02943182, 7.0212164)
-script = ExtResource("10_l6nol")
-
-[node name="breakwall" type="Node3D" parent="WallCrumble" unique_id=989111168]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=76954552]
+[node name="RigidBody3D" type="RigidBody3D" parent="breakwall" unique_id=564611370]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D" unique_id=1480976657]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D" unique_id=1340036286]
 shape = SubResource("ConcavePolygonShape3D_tuphm")
 
-[node name="breakwall" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D" unique_id=1547903832]
+[node name="breakwall" type="MeshInstance3D" parent="breakwall/RigidBody3D" unique_id=1595518499]
 mesh = SubResource("ArrayMesh_uuo1o")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=932726832]
+[node name="RigidBody3D2" type="RigidBody3D" parent="breakwall" unique_id=1757557263]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D2" unique_id=158516562]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D2" unique_id=841211620]
 shape = SubResource("ConcavePolygonShape3D_xtu4e")
 
-[node name="breakwall2" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D2" unique_id=1640768336]
+[node name="breakwall2" type="MeshInstance3D" parent="breakwall/RigidBody3D2" unique_id=949747203]
 mesh = SubResource("ArrayMesh_jjw1x")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=659757512]
+[node name="RigidBody3D3" type="RigidBody3D" parent="breakwall" unique_id=759847153]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D3" unique_id=1340558099]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D3" unique_id=519213786]
 shape = SubResource("ConcavePolygonShape3D_eys4b")
 
-[node name="breakwall3" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D3" unique_id=355149383]
+[node name="breakwall3" type="MeshInstance3D" parent="breakwall/RigidBody3D3" unique_id=776236365]
 mesh = SubResource("ArrayMesh_f0vka")
 
-[node name="RigidBody3D4" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=1993671978]
+[node name="RigidBody3D4" type="RigidBody3D" parent="breakwall" unique_id=1589309696]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D4" unique_id=441100768]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D4" unique_id=1587631162]
 shape = SubResource("ConcavePolygonShape3D_ot2jo")
 
-[node name="breakwall4" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D4" unique_id=619884602]
+[node name="breakwall4" type="MeshInstance3D" parent="breakwall/RigidBody3D4" unique_id=188789368]
 mesh = SubResource("ArrayMesh_e6cne")
 
-[node name="RigidBody3D5" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=721435893]
+[node name="RigidBody3D5" type="RigidBody3D" parent="breakwall" unique_id=1851789739]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D5" unique_id=1092170860]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D5" unique_id=1452093817]
 shape = SubResource("ConcavePolygonShape3D_l2ume")
 
-[node name="breakwall5" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D5" unique_id=732740373]
+[node name="breakwall5" type="MeshInstance3D" parent="breakwall/RigidBody3D5" unique_id=1453720157]
 mesh = SubResource("ArrayMesh_auxae")
 
-[node name="RigidBody3D6" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=752694152]
+[node name="RigidBody3D6" type="RigidBody3D" parent="breakwall" unique_id=30297803]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D6" unique_id=113065996]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D6" unique_id=71854584]
 shape = SubResource("ConcavePolygonShape3D_r23em")
 
-[node name="breakwall6" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D6" unique_id=2054742082]
+[node name="breakwall6" type="MeshInstance3D" parent="breakwall/RigidBody3D6" unique_id=1229183733]
 mesh = SubResource("ArrayMesh_cjyc3")
 
-[node name="RigidBody3D7" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=1506395500]
+[node name="RigidBody3D7" type="RigidBody3D" parent="breakwall" unique_id=1070477892]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D7" unique_id=2102625368]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D7" unique_id=1163579405]
 shape = SubResource("ConcavePolygonShape3D_fj810")
 
-[node name="breakwall7" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D7" unique_id=645505724]
+[node name="breakwall7" type="MeshInstance3D" parent="breakwall/RigidBody3D7" unique_id=1995884129]
 mesh = SubResource("ArrayMesh_b71vn")
 
-[node name="RigidBody3D8" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=457124346]
+[node name="RigidBody3D8" type="RigidBody3D" parent="breakwall" unique_id=546207225]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D8" unique_id=1196372588]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D8" unique_id=991199076]
 shape = SubResource("ConcavePolygonShape3D_fparf")
 
-[node name="breakwall8" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D8" unique_id=2014207112]
+[node name="breakwall8" type="MeshInstance3D" parent="breakwall/RigidBody3D8" unique_id=1097328665]
 mesh = SubResource("ArrayMesh_qcrjs")
 
-[node name="RigidBody3D9" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=393276042]
+[node name="RigidBody3D9" type="RigidBody3D" parent="breakwall" unique_id=632156150]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D9" unique_id=246440880]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D9" unique_id=1934598]
 shape = SubResource("ConcavePolygonShape3D_8euqs")
 
-[node name="breakwall9" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D9" unique_id=651774690]
+[node name="breakwall9" type="MeshInstance3D" parent="breakwall/RigidBody3D9" unique_id=827549461]
 mesh = SubResource("ArrayMesh_d4du0")
 
-[node name="RigidBody3D10" type="RigidBody3D" parent="WallCrumble/breakwall" unique_id=1335868661]
+[node name="RigidBody3D10" type="RigidBody3D" parent="breakwall" unique_id=1158879551]
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
 freeze = true
 
-[node name="breakwall10" type="MeshInstance3D" parent="WallCrumble/breakwall/RigidBody3D10" unique_id=1142634719]
+[node name="breakwall10" type="MeshInstance3D" parent="breakwall/RigidBody3D10" unique_id=1075435771]
 mesh = SubResource("ArrayMesh_xb7vj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/breakwall/RigidBody3D10" unique_id=1298538292]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="breakwall/RigidBody3D10" unique_id=835369834]
 shape = SubResource("ConcavePolygonShape3D_7sbii")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WallCrumble" unique_id=2067014238]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1679157888]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrumble/StaticBody3D" unique_id=1889503712]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=83123224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3732214, 6.102857, 0.21214676)
 shape = SubResource("BoxShape3D_e1poy")
 
-[node name="Timer" type="Timer" parent="WallCrumble" unique_id=24070489]
+[node name="Timer" type="Timer" parent="." unique_id=765283842]
 wait_time = 2.0
-
-[node name="Imp" parent="." unique_id=1741731338 instance=ExtResource("13_e1poy")]
-transform = Transform3D(5.49, 0, 0, 0, 5.49, 0, 0, 0, 5.49, 0, 1.8465266, -4.678507)
