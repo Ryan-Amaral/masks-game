@@ -42,7 +42,7 @@ offset_left = 19.0
 offset_top = 604.0
 offset_right = 180.0
 offset_bottom = 627.0
-text = "3 peeps in South End"
+text = "By: 3 peeps in South End"
 
 [node name="Button" type="Button" parent="." unique_id=7129541]
 layout_mode = 0
