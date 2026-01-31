@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cexouovf1tpnv"]
+
+[ext_resource type="Script" uid="uid://voa2pgb1g7rx" path="res://assets/scripts/player/MasksInventory.cs" id="1_hj2ta"]
+[ext_resource type="PackedScene" uid="uid://c6o0tcpn3weua" path="res://scenes/maskItemSlot.tscn" id="1_qw0r6"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1378944131]
+offset_left = 500.0
+offset_top = 557.955
+offset_right = 619.0
+offset_bottom = 597.955
+scale = Vector2(2, 2)
+script = ExtResource("1_hj2ta")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1429009012]
+layout_mode = 2
+
+[node name="Mask1" parent="HBoxContainer" unique_id=1319152524 instance=ExtResource("1_qw0r6")]
+layout_mode = 2
+MaskId = 1
+
+[node name="Mask2" parent="HBoxContainer" unique_id=715392381 instance=ExtResource("1_qw0r6")]
+layout_mode = 2
+MaskId = 2
+
+[node name="Mask3" parent="HBoxContainer" unique_id=1479897142 instance=ExtResource("1_qw0r6")]
+layout_mode = 2
+MaskId = 3

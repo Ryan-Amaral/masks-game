@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cyhmcqvuilnbk"]
+
+[ext_resource type="Script" uid="uid://nqktmqoicbft" path="res://assets/scripts/respawn/RespawnHandler.cs" id="1_0xqs1"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4fwf8"]
+
+[node name="RespawnHandler" type="Area3D" unique_id=1296465013]
+script = ExtResource("1_0xqs1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2072869956]
+shape = SubResource("WorldBoundaryShape3D_4fwf8")

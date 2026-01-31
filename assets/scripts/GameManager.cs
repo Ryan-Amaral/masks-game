@@ -4,7 +4,7 @@ using System;
 public partial class GameManager : Node
 {
 	// 0 is None, 1,2... corresponds to the order masks are found.
-	[Export] public int CurrentMask = 0;
+	public static int CurrentMask = 0;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

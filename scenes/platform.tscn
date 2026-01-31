@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://brkn8ufnrg5ql"]
+
+[ext_resource type="Script" uid="uid://r8kpqv1j0k7w" path="res://assets/scripts/Platform.cs" id="1_ba0x2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaj1n"]
+size = Vector3(2, 0.3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1lhc6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tr2i"]
+albedo_color = Color(0.23921569, 0.27450982, 0.9372549, 1)
+
+[node name="Platform1" type="StaticBody3D" unique_id=1462589162 node_paths=PackedStringArray("TheMesh", "Collider")]
+script = ExtResource("1_ba0x2")
+TheMesh = NodePath("MeshInstance3D")
+Collider = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1993359527]
+shape = SubResource("BoxShape3D_uaj1n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2039914897]
+transform = Transform3D(2, 0, 0, 0, 0.3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_1lhc6")
+surface_material_override/0 = SubResource("StandardMaterial3D_4tr2i")

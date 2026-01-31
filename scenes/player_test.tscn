@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cptjcgc8pr8jx"]
+
+[ext_resource type="PackedScene" uid="uid://cexouovf1tpnv" path="res://scenes/inventory.tscn" id="1_6p80c"]
+[ext_resource type="PackedScene" uid="uid://becfv4yrchxul" path="res://scenes/player.tscn" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://dvi3nigc4rlfg" path="res://scenes/mask.tscn" id="2_fdpfy"]
+[ext_resource type="PackedScene" uid="uid://rvd6npg7umat" path="res://scenes/respawn_area.tscn" id="4_4fwf8"]
+[ext_resource type="PackedScene" uid="uid://brkn8ufnrg5ql" path="res://scenes/platform.tscn" id="5_2ue4q"]
+[ext_resource type="PackedScene" uid="uid://cyhmcqvuilnbk" path="res://scenes/respawn_handler.tscn" id="6_dxymg"]
+[ext_resource type="PackedScene" uid="uid://uqnvbyjmvk7l" path="res://scenes/throwable.tscn" id="7_dxymg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_errlg"]
+size = Vector3(20.152039, 1, 19.990234)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bl13t"]
+
+[node name="Test" type="Node3D" unique_id=260905495]
+
+[node name="Player" parent="." unique_id=1403425153 instance=ExtResource("1_bl13t")]
+
+[node name="floo" type="StaticBody3D" parent="." unique_id=787823536]
+physics_material_override = SubResource("PhysicsMaterial_errlg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floo" unique_id=240739333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00894165, -0.529, -0.018432617)
+shape = SubResource("BoxShape3D_errlg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floo" unique_id=1950519925]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3692718, -0.49999952, 0.10921979)
+mesh = SubResource("BoxMesh_bl13t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
+transform = Transform3D(1, 0, 0, 0, 0.3364872, 0.94168806, 0, -0.94168806, 0.3364872, 0, 9.496563, 0)
+
+[node name="Mask" parent="." unique_id=485429026 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, 1.8033884)
+MaskId = 1
+
+[node name="Mask2" parent="." unique_id=52898513 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, 0)
+MaskId = 2
+
+[node name="Mask3" parent="." unique_id=678883629 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, -2.6443815)
+MaskId = 3
+
+[node name="RespawnArea" parent="." unique_id=52024483 instance=ExtResource("4_4fwf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175911, 0.5, 0.062446594)
+
+[node name="Platform1" parent="." unique_id=1462589162 instance=ExtResource("5_2ue4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1767869, -11.900967)
+
+[node name="Throwable" parent="." unique_id=1106220271 instance=ExtResource("7_dxymg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9415293, 2.606895)
+
+[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
+
+[node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("6_dxymg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.061058, 0)

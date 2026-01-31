@@ -1,37 +1,31 @@
 using Godot;
 using System;
+using EventHandler = GameJam2026Masks.scripts.EventHandler;
 
 public partial class Platform : StaticBody3D
 {
 	[Export] public MeshInstance3D TheMesh;
 	[Export] public CollisionShape3D Collider;
-	[Export] public bool DefaultOn = false;
-	
-	private bool isMaskActive = false;
-	private bool enabled = false;
-	private float timer = 0f;
+	[Export] private bool DefaultOn = false;
+	[Export] private int MaskId = 1;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		TheMesh.Visible = DefaultOn;
 		Collider.Disabled = !DefaultOn;
-		enabled = DefaultOn;
+		EventHandler.OnMaskSelected += OnMaskChanged;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	
+	private void OnMaskChanged(int mask)
 	{
-		// Tmp remove later, for debug.
-		timer += (float)delta;
-		if (timer < 3) return;
-		timer = 0f;
-		isMaskActive = !isMaskActive;
-		
-		
-		enabled = !(DefaultOn == isMaskActive);
+		Enable(mask == MaskId);
+			
+	}
+	
+	private void Enable(bool enabled){
 		TheMesh.Visible = enabled;
 		Collider.Disabled = !enabled;
-		GD.Print("enabled: ", enabled);
 	}
 }

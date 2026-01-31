@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvi3nigc4rlfg"]
+
+[ext_resource type="Script" uid="uid://q71f1w6ij82a" path="res://assets/scripts/interactable/MaskInteract.cs" id="1_in0c2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_74lek"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5jx5"]
+
+[node name="Mask" type="RigidBody3D" unique_id=485429026]
+script = ExtResource("1_in0c2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=71672153]
+mesh = SubResource("BoxMesh_74lek")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=873025255]
+shape = SubResource("BoxShape3D_j5jx5")
