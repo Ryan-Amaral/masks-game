@@ -8,7 +8,6 @@
 
 [node name="Player" type="CharacterBody3D" unique_id=1403425153]
 script = ExtResource("1_3vyb7")
-LookSpeed = 0.02
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1666451056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
 	private Label InteractTip;
 	
 	private IInteractable CurrentInteractable;
+	private MasksController MasksController = new MasksController();
 	public override void _Ready()
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
@@ -87,6 +88,8 @@ public partial class Player : CharacterBody3D
 		{
 			RotateLook(eventMouseMotion.Relative);
 		}
+
+		MasksController.HandleInput(@event);
 	}
 
 	private void RotateLook(Vector2 motion)
@@ -143,8 +146,9 @@ public partial class Player : CharacterBody3D
 		MoveAndSlide();
 	}
 
-	public void AddMask(string maskId)
+	public void AddMask(int maskId)
 	{
 		GD.Print(maskId + " added.");
+		MasksController.Add(maskId);
 	}
 }

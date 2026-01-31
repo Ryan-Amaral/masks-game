@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://8ysp4fd477qd"]
+[gd_scene format=3 uid="uid://cptjcgc8pr8jx"]
 
+[ext_resource type="PackedScene" uid="uid://cexouovf1tpnv" path="res://scenes/inventory.tscn" id="1_6p80c"]
 [ext_resource type="PackedScene" uid="uid://becfv4yrchxul" path="res://scenes/player.tscn" id="1_bl13t"]
-[ext_resource type="Script" uid="uid://q71f1w6ij82a" path="res://scripts/MaskInteract.cs" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://dvi3nigc4rlfg" path="res://scenes/mask.tscn" id="2_fdpfy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
 
@@ -9,10 +10,6 @@
 size = Vector3(20.152039, 1, 19.990234)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bl13t"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_74lek"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_j5jx5"]
 
 [node name="Test" type="Node3D" unique_id=260905495]
 
@@ -32,12 +29,16 @@ mesh = SubResource("BoxMesh_bl13t")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
 transform = Transform3D(1, 0, 0, 0, 0.3364872, 0.94168806, 0, -0.94168806, 0.3364872, 0, 9.496563, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=559054628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5590267, 3.1030288)
-script = ExtResource("2_bl13t")
+[node name="Mask" parent="." unique_id=485429026 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, 1.8033884)
+MaskId = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=549326642]
-mesh = SubResource("BoxMesh_74lek")
+[node name="Mask2" parent="." unique_id=52898513 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, 0)
+MaskId = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=479622229]
-shape = SubResource("BoxShape3D_j5jx5")
+[node name="Mask3" parent="." unique_id=678883629 instance=ExtResource("2_fdpfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1349072, 0.6744664, -2.6443815)
+MaskId = 3
+
+[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]

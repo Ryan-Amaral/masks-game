@@ -4,7 +4,7 @@ using GameJam2026Masks.scripts;
 
 public partial class MaskInteract : RigidBody3D, IInteractable
 {
-	[Export]private string MaskId;
+	[Export]private int MaskId;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -27,5 +27,6 @@ public partial class MaskInteract : RigidBody3D, IInteractable
 	public void Interact(Player player)
 	{
 		player.AddMask(MaskId);
+		QueueFree();
 	}
 }
