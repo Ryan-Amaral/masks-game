@@ -16,13 +16,13 @@ public partial class Imp : RigidBody3D
 		TriggerArea.BodyEntered += OnTriggerEnter;
 	}
 	
-	private void OnTriggerEnter(Node body)
+	private void OnTriggerEnter(Node other)
 	{
-		if (body == this) return;
-		GD.Print("Collided with: ", body.Name);
+		if (other == this) return;
+		GD.Print("Collided with: ", other.Name);
 		if (IsThrown && !alreadyExploded){
 			alreadyExploded = true;
-			Explode();
+			Explode(other);
 		}
 	}
 
@@ -33,9 +33,18 @@ public partial class Imp : RigidBody3D
 		
 	}
 	
-	private async void Explode(){
+	private async void Explode(Node other){
+		// Hide mesh and start particles/explosion.
 		TheMesh.Visible = false;
 		Particles.Emitting = true;
+		
+		// Crumble the wall (if applicable).
+		//var wall = other.GetNode<CrumbleWall>("Crumble Wall");
+		//if (wall != null){
+		//	wall.Crumble();
+		//}
+		
+		// Delete after short wait.
 		await ToSignal(GetTree().CreateTimer(1f), "timeout");
 		QueueFree();
 	}
