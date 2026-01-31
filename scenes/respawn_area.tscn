@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rvd6npg7umat"]
+
+[ext_resource type="Script" uid="uid://b7dqc8xccd8di" path="res://assets/scripts/player/RespawnArea.cs" id="1_7f5re"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ue4q"]
+size = Vector3(5, 1, 20)
+
+[node name="RespawnArea" type="Area3D" unique_id=52024483]
+script = ExtResource("1_7f5re")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1983871595]
+shape = SubResource("BoxShape3D_2ue4q")
+
+[node name="RespawnPoint" type="Node3D" parent="." unique_id=540998149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5773735, 0, -8.454377)

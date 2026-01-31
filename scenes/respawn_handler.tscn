@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cyhmcqvuilnbk"]
+
+[ext_resource type="Script" uid="uid://nqktmqoicbft" path="res://assets/scripts/respawn/RespawnHandler.cs" id="1_0xqs1"]
+
+[node name="RespawnHandler" type="Node3D" unique_id=1606846992]
+script = ExtResource("1_0xqs1")
