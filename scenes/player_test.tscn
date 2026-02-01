@@ -9,12 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c3ie2cfe2aib3" path="res://scenes/masks/mask_3.tscn" id="8_ad58j"]
 [ext_resource type="PackedScene" uid="uid://d3bu1g72sws2e" path="res://scenes/masks/mask_1.tscn" id="9_qtbut"]
 [ext_resource type="PackedScene" uid="uid://ctcan3njvkhm4" path="res://scenes/wall_crumble.tscn" id="10_qtbut"]
-[ext_resource type="Script" uid="uid://bwaj4o5dvqfd0" path="res://assets/scripts/DialogueHandler.cs" id="12_6m58v"]
-[ext_resource type="FontFile" uid="uid://dns6h4ei2oi5p" path="res://assets/fonts/LondrinaSketch-Regular.ttf" id="12_e1poy"]
 [ext_resource type="PackedScene" uid="uid://oceyloktsxt" path="res://scenes/imp_mesh.tscn" id="12_f6mep"]
 [ext_resource type="Script" uid="uid://2vtj5vab8bkf" path="res://assets/scripts/interactable/NPC.cs" id="12_l6nol"]
 [ext_resource type="PackedScene" uid="uid://vwnwcocsvhc5" path="res://scenes/imp.tscn" id="13_e1poy"]
-[ext_resource type="FontFile" uid="uid://cvxr0curqwkty" path="res://assets/fonts/GermaniaOne-Regular.ttf" id="14_8fa0t"]
+[ext_resource type="PackedScene" uid="uid://bv2wwn5hgew4m" path="res://scenes/dialogue.tscn" id="13_f6mep"]
 [ext_resource type="PackedScene" uid="uid://2a0h15la146k" path="res://scenes/wine_imp.tscn" id="16_n36ir"]
 [ext_resource type="PackedScene" uid="uid://cb6r7qpvlbqo2" path="res://scenes/basic_throwable.tscn" id="17_bpa7s"]
 [ext_resource type="PackedScene" uid="uid://bdo27hrqgg0wm" path="res://scenes/mask_light.tscn" id="18_bpa7s"]
@@ -28,9 +26,6 @@ size = Vector3(20.152039, 1, 19.990234)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
 size = Vector3(1, 2, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1poy"]
-bg_color = Color(0.10677572, 0.10677572, 0.10677572, 1)
 
 [node name="Test" type="Node3D" unique_id=260905495]
 
@@ -101,63 +96,7 @@ size_flags_vertical = 3
 [node name="PanelContainer" parent="CenterContainer" unique_id=1378944131 instance=ExtResource("1_6p80c")]
 layout_mode = 2
 
-[node name="Dialogue" type="PanelContainer" parent="." unique_id=503802535 node_paths=PackedStringArray("Text", "SpeakerLabel", "Timer")]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -223.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e1poy")
-script = ExtResource("12_6m58v")
-Text = NodePath("SideMargins/MarginContainer/Dialogue")
-SpeakerLabel = NodePath("SideMargins/Speaker")
-Timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="Dialogue" unique_id=1967581538]
-
-[node name="SideMargins" type="MarginContainer" parent="Dialogue" unique_id=900601945]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="Dialogue/SideMargins" unique_id=2023305626]
-custom_minimum_size = Vector2(0.215, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 20
-
-[node name="Dialogue" type="RichTextLabel" parent="Dialogue/SideMargins/MarginContainer" unique_id=684880037]
-clip_contents = false
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("12_e1poy")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-theme_override_font_sizes/mono_font_size = 36
-text = "This is dialogue. Look at it"
-
-[node name="Speaker" type="Label" parent="Dialogue/SideMargins" unique_id=290618871]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("14_8fa0t")
-theme_override_font_sizes/font_size = 36
-text = "SPEAKER"
-uppercase = true
-
-[node name="Continue" type="Label" parent="Dialogue/SideMargins" unique_id=1297715526]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("14_8fa0t")
-theme_override_font_sizes/font_size = 24
-text = "Press 'F' to Continue"
-horizontal_alignment = 2
+[node name="Dialogue" parent="." unique_id=1247924214 instance=ExtResource("13_f6mep")]
 
 [node name="WineImp" parent="." unique_id=1063038932 instance=ExtResource("16_n36ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4172363, 0.9886966, 3.0568237)
