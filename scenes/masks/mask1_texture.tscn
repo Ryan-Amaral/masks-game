@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cv6klglwkycv8"]
+
+[ext_resource type="PackedScene" uid="uid://bwdjpbu1ingqg" path="res://scenes/render_texture.tscn" id="1_ojil8"]
+[ext_resource type="PackedScene" uid="uid://b6pubwh1vpxsq" path="res://assets/masks/mask1.glb" id="2_c23wt"]
+
+[node name="RenderTecture" unique_id=179381306 instance=ExtResource("1_ojil8")]
+
+[node name="mask1" parent="SubViewport/Node3D/Model" parent_id_path=PackedInt32Array(1525241782) index="0" unique_id=452620262 instance=ExtResource("2_c23wt")]

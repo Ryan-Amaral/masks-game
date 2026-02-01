@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bwdjpbu1ingqg"]
+
+[ext_resource type="Script" uid="uid://gov8srxgmjhk" path="res://assets/scripts/player/RendTexture.cs" id="1_k3lmf"]
+
+[node name="RenderTecture" type="TextureRect" unique_id=179381306 node_paths=PackedStringArray("Viewport", "ModelNode")]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k3lmf")
+Viewport = NodePath("SubViewport")
+ModelNode = NodePath("SubViewport/Node3D/Model")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1767804130]
+transparent_bg = true
+size = Vector2i(80, 80)
+
+[node name="Node3D" type="Node3D" parent="SubViewport" unique_id=1923957836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.600403, -25264.87, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" unique_id=1808894912]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2371671, 0.6375122, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D" unique_id=1352048378]
+transform = Transform3D(0.08049113, -0.04073378, -0.9959227, -0.96894765, 0.23116598, -0.0877658, 0.23379846, 0.9720613, -0.020862091, -1.7580566, 2.2114868, 0)
+light_energy = 0.69
+
+[node name="Model" type="Node3D" parent="SubViewport/Node3D" unique_id=1525241782]

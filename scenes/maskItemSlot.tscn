@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c6o0tcpn3weua"]
 
 [ext_resource type="Script" uid="uid://xy3bdrpudflr" path="res://assets/scripts/player/MaskItemSlot.cs" id="1_d4w71"]
-[ext_resource type="Texture2D" uid="uid://bs4f4wbdcg0tv" path="res://icon.svg" id="1_quhof"]
 
 [node name="Mask" type="Control" unique_id=1319152524]
 custom_minimum_size = Vector2(80, 80)
@@ -15,18 +14,10 @@ visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_top = -3.0
-offset_right = 42.0
-offset_bottom = 42.0
-scale = Vector2(2, 2)
-color = Color(1, 1, 0.4745098, 1)
-
-[node name="Image" type="TextureRect" parent="." unique_id=2071308898]
-layout_mode = 0
-offset_right = 40.0
+offset_right = 40.5
 offset_bottom = 40.0
 scale = Vector2(2, 2)
-texture = ExtResource("1_quhof")
-expand_mode = 4
+color = Color(1, 1, 0.4745098, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1940260702]
 layout_mode = 0

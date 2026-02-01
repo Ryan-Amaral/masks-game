@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cexouovf1tpnv"]
 
 [ext_resource type="Script" uid="uid://voa2pgb1g7rx" path="res://assets/scripts/player/MasksInventory.cs" id="1_hj2ta"]
-[ext_resource type="PackedScene" uid="uid://c6o0tcpn3weua" path="res://scenes/maskItemSlot.tscn" id="1_qw0r6"]
+[ext_resource type="Script" uid="uid://xy3bdrpudflr" path="res://assets/scripts/player/MaskItemSlot.cs" id="2_yyk2a"]
+[ext_resource type="PackedScene" uid="uid://cv6klglwkycv8" path="res://scenes/masks/mask1_texture.tscn" id="3_uae8j"]
+[ext_resource type="PackedScene" uid="uid://6utuy230r77q" path="res://scenes/masks/mask2_texture.tscn" id="4_s887n"]
+[ext_resource type="PackedScene" uid="uid://cvdnic0kgprl5" path="res://scenes/masks/mask3_texture.tscn" id="5_g71ie"]
 
 [node name="PanelContainer" type="PanelContainer" unique_id=1378944131]
 custom_minimum_size = Vector2(248, 80)
@@ -16,14 +19,98 @@ script = ExtResource("1_hj2ta")
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Mask1" parent="HBoxContainer" unique_id=1319152524 instance=ExtResource("1_qw0r6")]
+[node name="Mask1" type="Control" parent="HBoxContainer" unique_id=1319152524]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_yyk2a")
 MaskId = 1
 
-[node name="Mask2" parent="HBoxContainer" unique_id=715392381 instance=ExtResource("1_qw0r6")]
+[node name="Highlight" type="ColorRect" parent="HBoxContainer/Mask1" unique_id=1068796997]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 40.5
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.4745098, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/Mask1" unique_id=1940260702]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 47.0
+offset_right = 78.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Image" parent="HBoxContainer/Mask1" unique_id=179381306 instance=ExtResource("3_uae8j")]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Mask2" type="Control" parent="HBoxContainer" unique_id=715392381]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_yyk2a")
 MaskId = 2
 
-[node name="Mask3" parent="HBoxContainer" unique_id=1479897142 instance=ExtResource("1_qw0r6")]
+[node name="Highlight" type="ColorRect" parent="HBoxContainer/Mask2" unique_id=1631553045]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 40.5
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.4745098, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/Mask2" unique_id=467803882]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 47.0
+offset_right = 78.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Image" parent="HBoxContainer/Mask2" unique_id=1583353703 instance=ExtResource("4_s887n")]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Mask3" type="Control" parent="HBoxContainer" unique_id=1479897142]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_yyk2a")
 MaskId = 3
+
+[node name="Highlight" type="ColorRect" parent="HBoxContainer/Mask3" unique_id=155541380]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 40.5
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.4745098, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/Mask3" unique_id=729020497]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 47.0
+offset_right = 78.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Image" parent="HBoxContainer/Mask3" unique_id=1135546969 instance=ExtResource("5_g71ie")]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
