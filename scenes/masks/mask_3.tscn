@@ -1,10 +1,45 @@
 [gd_scene format=3 uid="uid://c3ie2cfe2aib3"]
 
 [ext_resource type="PackedScene" uid="uid://dwn813m5h1lfd" path="res://scenes/maskInteractable.tscn" id="1_3ouuq"]
-[ext_resource type="PackedScene" uid="uid://ba1c7vd1ciuye" path="res://assets/masks/mask2.glb" id="2_uf53e"]
+[ext_resource type="PackedScene" uid="uid://cjpp73apj154h" path="res://assets/masks/mask3.glb" id="2_3ouuq"]
+
+[sub_resource type="Gradient" id="Gradient_uf53e"]
+offsets = PackedFloat32Array(0.018162394, 1)
+colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n36ir"]
+gradient = SubResource("Gradient_uf53e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5lmbj"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 687.0
+direction = Vector3(0, 1, 0)
+spread = 11.861
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_n36ir")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6mep"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_v4lel"]
+material = SubResource("StandardMaterial3D_f6mep")
+size = Vector2(0.05, 0.5)
 
 [node name="mask3" unique_id=913143854 instance=ExtResource("1_3ouuq")]
 MaskId = 3
 
-[node name="mask22" parent="." index="0" unique_id=1907893155 instance=ExtResource("2_uf53e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.73445797, 0)
+[node name="mask3" parent="." index="2" unique_id=1492298058 instance=ExtResource("2_3ouuq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.529704, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=12202344]
+visible = false
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_5lmbj")
+draw_pass_1 = SubResource("QuadMesh_v4lel")

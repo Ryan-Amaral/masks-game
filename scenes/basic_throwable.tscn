@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cb6r7qpvlbqo2"]
+
+[ext_resource type="Script" uid="uid://ctlpopk541wsm" path="res://assets/scripts/interactable/Throwable.cs" id="1_i6k3x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ef5ia"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_nputv"]
+
+[node name="BasicThrowable" type="RigidBody3D" unique_id=491263981]
+script = ExtResource("1_i6k3x")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=243245147]
+shape = SubResource("SphereShape3D_ef5ia")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=368013209]
+mesh = SubResource("SphereMesh_nputv")

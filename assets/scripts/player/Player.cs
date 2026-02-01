@@ -41,7 +41,7 @@ public partial class Player : CharacterBody3D
 			GodotObject collider = RayCast.GetCollider();
 			if (collider != null && collider is Node node)
 			{
-				if (node is IInteractable interactable)
+				if (node is IInteractable interactable && interactable.CanInteract())
 				{
 					CurrentInteractable = interactable;
 					InteractTip.Visible = true;
@@ -207,5 +207,27 @@ public partial class Player : CharacterBody3D
 		
 		CurrentThrowable = throwable;
 		CurrentThrowable.Attach(HeldItemNode);
+	}
+
+	public bool IsHolding(string name)
+	{
+		if (CurrentThrowable == null)
+		{
+			return false;
+		}
+		
+		return CurrentThrowable.GetName() == name;
+	}
+
+	public bool IsHoldingSomething()
+	{
+		return CurrentThrowable != null;
+	}
+
+	public IThrowable TakeHeldObject()
+	{
+		var temp = CurrentThrowable;
+		CurrentThrowable = null;
+		return temp;
 	}
 }

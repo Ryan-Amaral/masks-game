@@ -25,10 +25,14 @@ public partial class MasksInventory : Control
 
 	public void Update(int selectedMask)
 	{
-		if (selectedMask == 0 && SelectedMask != null)
+		GD.Print(selectedMask);
+		if (selectedMask == 0 )
 		{
-			SelectedMask.Deselect();
-			SelectedMask = null;
+			if (SelectedMask != null)
+			{
+				SelectedMask.Deselect();
+				SelectedMask = null;
+			}
 			return;
 		}
 

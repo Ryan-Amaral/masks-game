@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://2a0h15la146k"]
+
+[ext_resource type="Script" uid="uid://dh14lbj44jj0v" path="res://assets/scripts/interactable/FetchQuestNPC.cs" id="1_b5dbu"]
+[ext_resource type="PackedScene" uid="uid://oceyloktsxt" path="res://scenes/imp_mesh.tscn" id="2_hjmrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
+size = Vector3(1, 2, 1)
+
+[node name="WineImp" type="StaticBody3D" unique_id=1063038932 node_paths=PackedStringArray("HoldNode")]
+script = ExtResource("1_b5dbu")
+WantsObject = "wine"
+WrongObjectDialogue = "I dont want that"
+OnCompleteDialogue = "Woah thanks!"
+CompleteDialogue = "Ahhh that hits the spot"
+HoldNode = NodePath("Node3D")
+Dialogue = "Could really go for a drink..."
+Speaker = "Imp"
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1196766435]
+shape = SubResource("BoxShape3D_e1poy")
+
+[node name="mesh" parent="." unique_id=1590232655 instance=ExtResource("2_hjmrv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.32, -2.22, 0)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1950936181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36041164, 0.7296448)

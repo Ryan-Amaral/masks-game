@@ -45,4 +45,9 @@ public partial class MaskInteract : StaticBody3D, IInteractable
 		QueueFree();
 		EventHandler.OnShowDialogue?.Invoke(new DialogueInfo{Dialogue = MaskDialogue, Speaker = MaskName});
 	}
+
+	public bool CanInteract()
+	{
+		return true;
+	}
 }

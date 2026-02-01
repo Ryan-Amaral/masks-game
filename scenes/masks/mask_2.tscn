@@ -3,8 +3,45 @@
 [ext_resource type="PackedScene" uid="uid://dwn813m5h1lfd" path="res://scenes/maskInteractable.tscn" id="1_tc8i5"]
 [ext_resource type="PackedScene" uid="uid://ba1c7vd1ciuye" path="res://assets/masks/mask2.glb" id="2_ocxcd"]
 
+[sub_resource type="Gradient" id="Gradient_tc8i5"]
+offsets = PackedFloat32Array(0.018162394, 1)
+colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 0.43180367, 0.10790109, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tc8i5"]
+gradient = SubResource("Gradient_tc8i5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ocxcd"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 687.0
+direction = Vector3(0, 1, 0)
+spread = 11.861
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_tc8i5")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocxcd"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxjvv"]
+material = SubResource("StandardMaterial3D_ocxcd")
+size = Vector2(0.05, 0.5)
+
 [node name="mask2" unique_id=913143854 instance=ExtResource("1_tc8i5")]
 MaskId = 2
 
 [node name="mask22" parent="." index="1" unique_id=1907893155 instance=ExtResource("2_ocxcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7673876, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=442431367]
+visible = false
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_ocxcd")
+draw_pass_1 = SubResource("QuadMesh_pxjvv")

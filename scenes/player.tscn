@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://becfv4yrchxul"]
 
 [ext_resource type="Script" uid="uid://cs0kd2w2prhqd" path="res://assets/scripts/player/Player.cs" id="1_3vyb7"]
+[ext_resource type="FontFile" uid="uid://cvxr0curqwkty" path="res://assets/fonts/GermaniaOne-Regular.ttf" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ij1v8"]
 
@@ -36,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0447363, -0.5085639, -1.22
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_g2els")
 theme_override_font_sizes/font_size = 36
 text = "Press 'E' to Interact"
 horizontal_alignment = 2
