@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bdo27hrqgg0wm"]
+
+[ext_resource type="Script" uid="uid://dygbs3oqruj0a" path="res://assets/scripts/interactable/MaskLight.cs" id="1_xg2x6"]
+
+[node name="MaskLight" type="SpotLight3D" unique_id=158065239]
+spot_angle = 180.0
+script = ExtResource("1_xg2x6")

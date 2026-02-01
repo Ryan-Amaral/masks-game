@@ -3,9 +3,43 @@
 [ext_resource type="PackedScene" uid="uid://dwn813m5h1lfd" path="res://scenes/maskInteractable.tscn" id="1_vy54m"]
 [ext_resource type="PackedScene" uid="uid://b6pubwh1vpxsq" path="res://assets/masks/mask1.glb" id="2_v6b2v"]
 
+[sub_resource type="Gradient" id="Gradient_v6b2v"]
+offsets = PackedFloat32Array(0.018162394, 1)
+colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 1, 0.70980394, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n36ir"]
+gradient = SubResource("Gradient_v6b2v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hw7d5"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 687.0
+direction = Vector3(0, 1, 0)
+spread = 11.861
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_n36ir")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6mep"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_niv01"]
+material = SubResource("StandardMaterial3D_f6mep")
+size = Vector2(0.05, 0.5)
+
 [node name="Mask1" unique_id=913143854 instance=ExtResource("1_vy54m")]
-MaskName = "Mask"
 MaskDialogue = "....."
 
 [node name="mask1" parent="." index="1" unique_id=452620262 instance=ExtResource("2_v6b2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65556836, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=1511939459]
+visible = false
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_hw7d5")
+draw_pass_1 = SubResource("QuadMesh_niv01")
