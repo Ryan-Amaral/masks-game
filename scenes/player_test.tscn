@@ -10,7 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c3ie2cfe2aib3" path="res://scenes/masks/mask_3.tscn" id="8_ad58j"]
 [ext_resource type="PackedScene" uid="uid://d3bu1g72sws2e" path="res://scenes/masks/mask_1.tscn" id="9_qtbut"]
 [ext_resource type="PackedScene" uid="uid://ctcan3njvkhm4" path="res://scenes/wall_crumble.tscn" id="10_qtbut"]
-[ext_resource type="PackedScene" path="res://scenes/imp.tscn" id="13_e1poy"]
+[ext_resource type="Script" uid="uid://bwaj4o5dvqfd0" path="res://assets/scripts/DialogueHandler.cs" id="12_6m58v"]
+[ext_resource type="FontFile" uid="uid://dns6h4ei2oi5p" path="res://assets/fonts/LondrinaSketch-Regular.ttf" id="12_e1poy"]
+[ext_resource type="PackedScene" uid="uid://oceyloktsxt" path="res://scenes/imp_mesh.tscn" id="12_f6mep"]
+[ext_resource type="Script" uid="uid://2vtj5vab8bkf" path="res://assets/scripts/interactable/NPC.cs" id="12_l6nol"]
+[ext_resource type="PackedScene" uid="uid://vwnwcocsvhc5" path="res://scenes/imp.tscn" id="13_e1poy"]
+[ext_resource type="FontFile" uid="uid://cvxr0curqwkty" path="res://assets/fonts/GermaniaOne-Regular.ttf" id="14_8fa0t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
 
@@ -18,6 +23,12 @@
 size = Vector3(20.152039, 1, 19.990234)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bl13t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1poy"]
+bg_color = Color(0.10677572, 0.10677572, 0.10677572, 1)
 
 [node name="Test" type="Node3D" unique_id=260905495]
 
@@ -37,7 +48,7 @@ transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3692718, -0.49999952, 0.1
 mesh = SubResource("BoxMesh_bl13t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
-transform = Transform3D(1, 0, 0, 0, 0.3364872, 0.94168806, 0, -0.94168806, 0.3364872, 0, 9.496563, 0)
+transform = Transform3D(1, 0, 0, 0, -0.98657215, 0.163326, 0, -0.163326, -0.98657215, 0, 9.496563, 0)
 
 [node name="RespawnArea" parent="." unique_id=52024483 instance=ExtResource("4_4fwf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175911, 0.5, 0.062446594)
@@ -47,8 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1767869, -11.900967)
 
 [node name="Throwable" parent="." unique_id=1106220271 instance=ExtResource("7_dxymg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9415293, 2.606895)
-
-[node name="PanelContainer" parent="." unique_id=1378944131 instance=ExtResource("1_6p80c")]
 
 [node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("6_dxymg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.061058, 0)
@@ -67,3 +76,85 @@ transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, -3.2914848, 0.029
 
 [node name="Imp" parent="." unique_id=1741731338 instance=ExtResource("13_e1poy")]
 transform = Transform3D(5.49, 0, 0, 0, 5.49, 0, 0, 0, 5.49, 0, 1.8465266, -4.678507)
+
+[node name="NPC" type="StaticBody3D" parent="." unique_id=827241552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4172363, 0.9886966, 0)
+script = ExtResource("12_l6nol")
+
+[node name="Collider" type="CollisionShape3D" parent="NPC" unique_id=1790809370]
+shape = SubResource("BoxShape3D_e1poy")
+
+[node name="mesh" parent="NPC" unique_id=1590232655 instance=ExtResource("12_f6mep")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.32, -2.22, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1620544727]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" parent="CenterContainer" unique_id=1378944131 instance=ExtResource("1_6p80c")]
+layout_mode = 2
+
+[node name="Dialogue" type="PanelContainer" parent="." unique_id=503802535 node_paths=PackedStringArray("Text", "SpeakerLabel", "Timer")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1poy")
+script = ExtResource("12_6m58v")
+Text = NodePath("SideMargins/MarginContainer/Dialogue")
+SpeakerLabel = NodePath("SideMargins/Speaker")
+Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Dialogue" unique_id=1967581538]
+
+[node name="SideMargins" type="MarginContainer" parent="Dialogue" unique_id=900601945]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/SideMargins" unique_id=2023305626]
+custom_minimum_size = Vector2(0.215, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Dialogue" type="RichTextLabel" parent="Dialogue/SideMargins/MarginContainer" unique_id=684880037]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("12_e1poy")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+text = "This is dialogue. Look at it"
+
+[node name="Speaker" type="Label" parent="Dialogue/SideMargins" unique_id=290618871]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("14_8fa0t")
+theme_override_font_sizes/font_size = 36
+text = "SPEAKER"
+uppercase = true
+
+[node name="Continue" type="Label" parent="Dialogue/SideMargins" unique_id=1297715526]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("14_8fa0t")
+theme_override_font_sizes/font_size = 24
+text = "Press 'F' to Continue"
+horizontal_alignment = 2

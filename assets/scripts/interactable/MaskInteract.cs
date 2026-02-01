@@ -1,10 +1,15 @@
 using Godot;
 using System;
+using GameJam2026Masks.assets.scripts;
 using GameJam2026Masks.scripts;
+using EventHandler = GameJam2026Masks.scripts.EventHandler;
 
 public partial class MaskInteract : StaticBody3D, IInteractable
 {
 	[Export]private int MaskId;
+	[Export]private string MaskName;
+	[Export]private string MaskDialogue;
+
 
 	public override void _Ready()
 	{
@@ -38,5 +43,6 @@ public partial class MaskInteract : StaticBody3D, IInteractable
 	{
 		player.AddMask(MaskId);
 		QueueFree();
+		EventHandler.OnShowDialogue?.Invoke(new DialogueInfo{Dialogue = MaskDialogue, Speaker = MaskName});
 	}
 }

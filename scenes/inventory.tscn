@@ -4,15 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://c6o0tcpn3weua" path="res://scenes/maskItemSlot.tscn" id="1_qw0r6"]
 
 [node name="PanelContainer" type="PanelContainer" unique_id=1378944131]
+custom_minimum_size = Vector2(248, 80)
 offset_left = 500.0
 offset_top = 557.955
-offset_right = 619.0
-offset_bottom = 597.955
-scale = Vector2(2, 2)
+offset_right = 631.18
+offset_bottom = 598.43
+size_flags_horizontal = 0
 script = ExtResource("1_hj2ta")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1429009012]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Mask1" parent="HBoxContainer" unique_id=1319152524 instance=ExtResource("1_qw0r6")]
 layout_mode = 2

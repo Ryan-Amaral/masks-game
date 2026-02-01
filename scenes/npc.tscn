@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://btth30e13xmiy"]
+
+[ext_resource type="Script" uid="uid://2vtj5vab8bkf" path="res://assets/scripts/interactable/NPC.cs" id="1_nh2m4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
+size = Vector3(1, 2, 1)
+
+[node name="NPC" type="StaticBody3D" unique_id=722549928]
+script = ExtResource("1_nh2m4")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=638242928]
+shape = SubResource("BoxShape3D_e1poy")

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b6pubwh1vpxsq" path="res://assets/masks/mask1.glb" id="2_v6b2v"]
 
 [node name="Mask1" unique_id=913143854 instance=ExtResource("1_vy54m")]
+MaskName = "Mask"
+MaskDialogue = "....."
 
 [node name="mask1" parent="." index="1" unique_id=452620262 instance=ExtResource("2_v6b2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65556836, 0)

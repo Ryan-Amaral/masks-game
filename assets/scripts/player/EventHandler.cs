@@ -1,4 +1,5 @@
 using System;
+using GameJam2026Masks.assets.scripts;
 using Godot;
 
 namespace GameJam2026Masks.scripts;
@@ -9,5 +10,6 @@ public static class EventHandler
 
     public static Action<int> OnMaskSelected;
     public static Action<Vector3> OnRespawnAreaEntered;
+    public static Action<DialogueInfo> OnShowDialogue;
 
 }
