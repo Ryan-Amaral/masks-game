@@ -20,8 +20,6 @@ direction = Vector3(0, 1, 0)
 spread = 11.861
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_tc8i5")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
@@ -31,16 +29,17 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_pxjvv"]
 material = SubResource("StandardMaterial3D_ocxcd")
-size = Vector2(0.05, 0.5)
+size = Vector2(0.05, 0.05)
 
 [node name="mask2" unique_id=913143854 instance=ExtResource("1_tc8i5")]
 MaskId = 2
+MaskName = "The Gaol-Imp"
+MaskDialogue = "Yes! Yes! Through my twisted visage, reign over the twisted creatures of this land!"
 
 [node name="mask22" parent="." index="1" unique_id=1907893155 instance=ExtResource("2_ocxcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7673876, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=442431367]
-visible = false
 amount = 20
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_ocxcd")

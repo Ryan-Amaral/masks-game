@@ -29,16 +29,17 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_v4lel"]
 material = SubResource("StandardMaterial3D_f6mep")
-size = Vector2(0.05, 0.5)
+size = Vector2(0.05, 0.05)
 
 [node name="mask3" unique_id=913143854 instance=ExtResource("1_3ouuq")]
 MaskId = 3
+MaskName = "The Fire-Tender"
+MaskDialogue = "A mote of light lingers even in the darkest recesses..."
 
 [node name="mask3" parent="." index="2" unique_id=1492298058 instance=ExtResource("2_3ouuq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.529704, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=12202344]
-visible = false
 amount = 20
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_5lmbj")
