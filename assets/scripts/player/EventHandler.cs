@@ -6,9 +6,9 @@ namespace GameJam2026Masks.scripts;
 
 public static class EventHandler
 {
-    public static Action<int> OnMaskUnlocked;
-    public static Action<int> OnMaskSelected;
-    public static Action<Vector3> OnRespawnAreaEntered;
-    public static Action<DialogueInfo> OnShowDialogue;
+	public static Action<int> OnMaskUnlocked;
+	public static Action<int> OnMaskSelected;
+	public static Action<Vector3> OnRespawnAreaEntered;
+	public static Action<DialogueInfo> OnShowDialogue;
 
 }
