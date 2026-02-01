@@ -1,47 +1,74 @@
 [gd_scene format=3 uid="uid://bqv8agg1ujxag"]
 
-[node name="Title Screen" type="Control" unique_id=221465065]
+[ext_resource type="FontFile" uid="uid://dns6h4ei2oi5p" path="res://assets/fonts/LondrinaSketch-Regular.ttf" id="1_2a4c8"]
+[ext_resource type="Script" uid="uid://dbd7osn2nskyj" path="res://assets/scripts/MainMenu.cs" id="1_tcn83"]
+[ext_resource type="FontFile" uid="uid://cvxr0curqwkty" path="res://assets/fonts/GermaniaOne-Regular.ttf" id="2_tcn83"]
+[ext_resource type="Script" uid="uid://hfkk4h524pcn" path="res://assets/scripts/CreditsPanel.cs" id="4_42xm2"]
+[ext_resource type="AudioStream" uid="uid://b7o2hbofg84pg" path="res://assets/music/strange_agony.mp3" id="5_1ul6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42xm2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcn83"]
+bg_color = Color(0.028600344, 0.0026721524, 0.0052831513, 1)
+
+[node name="Title Screen" type="Control" unique_id=221465065 node_paths=PackedStringArray("Start", "Exit", "Credit", "CreditsPanel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tcn83")
+Start = NodePath("CenterContainer/VBoxContainer/Start")
+Exit = NodePath("CenterContainer/VBoxContainer/Quit")
+Credit = NodePath("Button")
+CreditsPanel = NodePath("Panel")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=378915342]
 layout_mode = 0
-offset_left = 499.0
-offset_top = 318.0
-offset_right = 595.0
-offset_bottom = 384.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1833345057]
+custom_minimum_size = Vector2(299, 0)
 layout_mode = 2
 alignment = 1
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1169162669]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2a4c8")
+theme_override_font_sizes/font_size = 36
 text = "Start Game"
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=1079994545]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_42xm2")
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1706509964]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2a4c8")
+theme_override_font_sizes/font_size = 36
 text = "Quit"
 
 [node name="Title" type="Label" parent="." unique_id=1605739483]
 layout_mode = 0
-offset_left = 460.0
 offset_top = 170.0
-offset_right = 637.0
-offset_bottom = 193.0
-text = "Mask Mask Mask Mask"
+offset_right = 1138.0
+offset_bottom = 246.0
+theme_override_fonts/font = ExtResource("2_tcn83")
+theme_override_font_sizes/font_size = 56
+text = "Masks of the Ferryman"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Devs" type="Label" parent="." unique_id=35788236]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 604.0
+offset_top = 619.0
 offset_right = 180.0
-offset_bottom = 627.0
+offset_bottom = 642.0
+theme_override_fonts/font = ExtResource("2_tcn83")
 text = "By: 3 peeps in South End"
 
 [node name="Button" type="Button" parent="." unique_id=7129541]
@@ -50,4 +77,40 @@ offset_left = 1075.0
 offset_top = 604.0
 offset_right = 1138.0
 offset_bottom = 635.0
+theme_override_fonts/font = ExtResource("1_2a4c8")
 text = "Credits"
+
+[node name="Panel" type="Panel" parent="." unique_id=132174368]
+visible = false
+layout_mode = 0
+offset_right = 1145.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tcn83")
+script = ExtResource("4_42xm2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=289915791]
+layout_mode = 0
+offset_right = 1143.0
+offset_bottom = 649.0
+theme_override_constants/margin_top = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer" unique_id=1835953927]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_tcn83")
+theme_override_font_sizes/normal_font_size = 36
+text = "CREDITS
+
+
+
+Ryan Amaral - Programmer, Game Design
+Sean Morris - Art & Asset Design, Game Design
+Athirah Afwina - Programmer, Game Design"
+horizontal_alignment = 1
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=179582339]
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=409579097]
+stream = ExtResource("5_1ul6f")
+autoplay = true

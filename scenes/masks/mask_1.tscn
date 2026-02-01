@@ -5,7 +5,7 @@
 
 [sub_resource type="Gradient" id="Gradient_v6b2v"]
 offsets = PackedFloat32Array(0.018162394, 1)
-colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 1, 0.70980394, 0, 1)
+colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 5.583167e-06, 0.78399086, 0.96117467, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n36ir"]
 gradient = SubResource("Gradient_v6b2v")
@@ -38,7 +38,6 @@ MaskDialogue = "....."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65556836, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=1511939459]
-visible = false
 amount = 20
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_hw7d5")
