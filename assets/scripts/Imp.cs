@@ -1,9 +1,13 @@
 using Godot;
 using System;
 using GameJam2026Masks.scripts;
+using EventHandler = GameJam2026Masks.scripts.EventHandler;
 
 public partial class Imp : RigidBody3D, IThrowable
 {
+	[Export] public int MaskId =2;
+	[Export] private bool DefaultOn = false;
+
 	[Export] public bool IsThrown;
 	[Export] public Area3D TriggerArea;
 	[Export] public CpuParticles3D Particles;
@@ -13,12 +17,45 @@ public partial class Imp : RigidBody3D, IThrowable
 	private Node PrevParent;
 	
 	private bool alreadyExploded = false;
-	
-	// Called when the node enters the scene tree for the first time.
+	private bool IsShowing;
 	public override void _Ready()
 	{
 		TriggerArea.BodyEntered += OnTriggerEnter;
 		Collider = TriggerArea.GetChild<CollisionShape3D>(0);
+		EventHandler.OnMaskSelected += OnSetMask;
+
+		if (DefaultOn)
+		{
+			Show();
+		}
+		else
+		{
+			Hide();
+		}
+	}
+
+	private void OnSetMask(int maskId)
+	{
+		if (maskId == MaskId)
+		{
+			Show();
+		}
+		else
+		{
+			Hide();
+		}
+	}
+
+	private void Show()
+	{
+		Visible = true;
+		IsShowing = true;
+	}
+
+	private void Hide()
+	{
+		Visible = false;
+		IsShowing = false;
 	}
 	
 	private void OnTriggerEnter(Node other)
@@ -52,6 +89,8 @@ public partial class Imp : RigidBody3D, IThrowable
 		
 		// Delete after short wait.
 		await ToSignal(GetTree().CreateTimer(1f), "timeout");
+		
+		EventHandler.OnMaskSelected -= OnSetMask;
 		QueueFree();
 	}
 
@@ -66,6 +105,16 @@ public partial class Imp : RigidBody3D, IThrowable
 	public void Interact(Player player)
 	{
 		player.PickUp(this);
+	}
+
+	public bool CanInteract()
+	{
+		return IsShowing;
+	}
+
+	public string GetName()
+	{
+		return "Imp";
 	}
 
 	public void Attach(Node3D node)

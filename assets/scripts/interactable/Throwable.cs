@@ -4,9 +4,11 @@ using GameJam2026Masks.scripts;
 
 public partial class Throwable : RigidBody3D, IThrowable, IResetable
 {
+	[Export] private string ObjectName;
 	private CollisionShape3D Collider;
 	private Node PrevParent;
 	private Vector3 ResetPosition;
+	
 	public override void _Ready()
 	{
 		Collider = GetNode<CollisionShape3D>("Collider");
@@ -26,6 +28,11 @@ public partial class Throwable : RigidBody3D, IThrowable, IResetable
 		player.PickUp(this);
 	}
 
+	public bool CanInteract()
+	{
+		return true;
+	}
+
 	public void Drop()
 	{
 		Collider.Disabled = false;	
@@ -38,6 +45,11 @@ public partial class Throwable : RigidBody3D, IThrowable, IResetable
 		GlobalPosition = ResetPosition;
 		LinearVelocity = Vector3.Zero;
 		AngularVelocity = Vector3.Zero;
+	}
+
+	public string GetName()
+	{
+		return ObjectName;
 	}
 
 	public void Attach(Node3D node)

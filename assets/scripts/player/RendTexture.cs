@@ -16,9 +16,9 @@ public partial class RendTexture : Godot.TextureRect
 	{
 		tween = CreateTween();
 		tween.SetLoops();
-		tween.TweenProperty(ModelNode, "position:y", -0.1, 1.0).SetTrans(Tween.TransitionType.Sine)
+		tween.TweenProperty(ModelNode, "rotation:y", -0.1, 1.0).SetTrans(Tween.TransitionType.Sine)
 			.SetEase(Tween.EaseType.InOut);
-		tween.TweenProperty(ModelNode, "position:y", 0.1, 1.0).SetTrans(Tween.TransitionType.Sine)
+		tween.TweenProperty(ModelNode, "rotation:y", 0.1, 1.0).SetTrans(Tween.TransitionType.Sine)
 			.SetEase(Tween.EaseType.InOut);
 
 	}

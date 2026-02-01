@@ -6,4 +6,5 @@ public interface IInteractable
     public void OnLoseFocus();
 
     public void Interact(Player player);
+    public bool CanInteract();
 }

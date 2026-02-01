@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://rvd6npg7umat" path="res://scenes/respawn_area.tscn" id="4_4fwf8"]
 [ext_resource type="PackedScene" uid="uid://brkn8ufnrg5ql" path="res://scenes/platform.tscn" id="5_2ue4q"]
 [ext_resource type="PackedScene" uid="uid://cyhmcqvuilnbk" path="res://scenes/respawn_handler.tscn" id="6_dxymg"]
-[ext_resource type="PackedScene" uid="uid://uqnvbyjmvk7l" path="res://scenes/throwable.tscn" id="7_dxymg"]
 [ext_resource type="PackedScene" uid="uid://du5qxhw3jd3fp" path="res://scenes/masks/mask_2.tscn" id="7_ged13"]
 [ext_resource type="PackedScene" uid="uid://c3ie2cfe2aib3" path="res://scenes/masks/mask_3.tscn" id="8_ad58j"]
 [ext_resource type="PackedScene" uid="uid://d3bu1g72sws2e" path="res://scenes/masks/mask_1.tscn" id="9_qtbut"]
@@ -16,6 +15,8 @@
 [ext_resource type="Script" uid="uid://2vtj5vab8bkf" path="res://assets/scripts/interactable/NPC.cs" id="12_l6nol"]
 [ext_resource type="PackedScene" uid="uid://vwnwcocsvhc5" path="res://scenes/imp.tscn" id="13_e1poy"]
 [ext_resource type="FontFile" uid="uid://cvxr0curqwkty" path="res://assets/fonts/GermaniaOne-Regular.ttf" id="14_8fa0t"]
+[ext_resource type="PackedScene" uid="uid://2a0h15la146k" path="res://scenes/wine_imp.tscn" id="16_n36ir"]
+[ext_resource type="PackedScene" uid="uid://cb6r7qpvlbqo2" path="res://scenes/basic_throwable.tscn" id="17_bpa7s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
 
@@ -29,6 +30,34 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1poy"]
 bg_color = Color(0.10677572, 0.10677572, 0.10677572, 1)
+
+[sub_resource type="Gradient" id="Gradient_f6mep"]
+offsets = PackedFloat32Array(0.018162394, 1)
+colors = PackedColorArray(0.9428019, 0.9575954, 1, 1, 1, 0.70980394, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n36ir"]
+gradient = SubResource("Gradient_f6mep")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6mep"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 687.0
+direction = Vector3(0, 1, 0)
+spread = 11.861
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_n36ir")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6mep"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_n36ir"]
+material = SubResource("StandardMaterial3D_f6mep")
+size = Vector2(0.05, 0.5)
 
 [node name="Test" type="Node3D" unique_id=260905495]
 
@@ -44,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00894165, -0.529, -0.01843
 shape = SubResource("BoxShape3D_errlg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floo" unique_id=1950519925]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3692718, -0.49999952, 0.10921979)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1.3813567, -0.5133052, 0.17767072)
 mesh = SubResource("BoxMesh_bl13t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791162653]
@@ -55,9 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175911, 0.5, 0.062446594)
 
 [node name="Platform1" parent="." unique_id=1462589162 instance=ExtResource("5_2ue4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1767869, -11.900967)
-
-[node name="Throwable" parent="." unique_id=1106220271 instance=ExtResource("7_dxymg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9415293, 2.606895)
 
 [node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("6_dxymg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.061058, 0)
@@ -158,3 +184,17 @@ theme_override_fonts/font = ExtResource("14_8fa0t")
 theme_override_font_sizes/font_size = 24
 text = "Press 'F' to Continue"
 horizontal_alignment = 2
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=162922902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1916933, 1.3102883, 0)
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_f6mep")
+draw_pass_1 = SubResource("QuadMesh_n36ir")
+
+[node name="WineImp" parent="." unique_id=1063038932 instance=ExtResource("16_n36ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4172363, 0.9886966, 3.0568237)
+
+[node name="BasicThrowable" parent="." unique_id=491263981 instance=ExtResource("17_bpa7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5559082, 1.5697937)
+ObjectName = "wine"
