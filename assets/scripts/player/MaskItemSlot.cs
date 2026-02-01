@@ -6,14 +6,14 @@ public partial class MaskItemSlot : Control
 	[Export] public int MaskId;
 	
 	private Label Label;
-	private TextureRect Image;
+	private RendTexture Image;
 	private ColorRect Highlight;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Label = GetNode<Label>("Label");
-		Image = GetNode<TextureRect>("Image");
+		Image = GetNode<RendTexture>("Image");
 		Highlight = GetNode<ColorRect>("Highlight");
 		
 		Label.Text = MaskId.ToString();
@@ -28,10 +28,12 @@ public partial class MaskItemSlot : Control
 	public void Select()
 	{
 		Highlight.SetVisible(true);
+		Image.Highlight();
 	}
 
 	public void Deselect()
 	{
 		Highlight.SetVisible(false);
+		Image.Deselect();
 	}
 }

@@ -1,16 +1,31 @@
 using Godot;
 using System;
+using GameJam2026Masks.assets.scripts;
 using GameJam2026Masks.scripts;
+using EventHandler = GameJam2026Masks.scripts.EventHandler;
 
-public partial class MaskInteract : RigidBody3D, IInteractable
+public partial class MaskInteract : StaticBody3D, IInteractable
 {
 	[Export]private int MaskId;
-	// Called when the node enters the scene tree for the first time.
+	[Export]private string MaskName;
+	[Export]private string MaskDialogue;
+
+
 	public override void _Ready()
 	{
+		Tween tween = CreateTween();
+		tween.SetLoops();
+
+		tween.TweenProperty(this, "position:y", -0.5, 3.0).AsRelative().SetTrans(Tween.TransitionType.Sine)
+			.SetEase(Tween.EaseType.InOut);
+		tween.TweenProperty(this, "position:y", 0.5, 3.0).AsRelative().SetTrans(Tween.TransitionType.Sine)
+			.SetEase(Tween.EaseType.InOut);
+		
+		Tween spinTween = CreateTween();
+		spinTween.SetLoops();
+		spinTween.TweenProperty(this, "rotation:y", MathF.Tau, 5f).AsRelative();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -28,5 +43,6 @@ public partial class MaskInteract : RigidBody3D, IInteractable
 	{
 		player.AddMask(MaskId);
 		QueueFree();
+		EventHandler.OnShowDialogue?.Invoke(new DialogueInfo{Dialogue = MaskDialogue, Speaker = MaskName});
 	}
 }
