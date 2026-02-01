@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bm30uxu68cmmq"]
+
+[ext_resource type="PackedScene" uid="uid://dq52ehps75tkg" path="res://maps/basemap.glb" id="1_4uwjs"]
+[ext_resource type="Script" uid="uid://r8kpqv1j0k7w" path="res://assets/scripts/Platform.cs" id="2_61g18"]
+[ext_resource type="PackedScene" uid="uid://becfv4yrchxul" path="res://scenes/player.tscn" id="2_h5in5"]
+[ext_resource type="PackedScene" uid="uid://cyhmcqvuilnbk" path="res://scenes/respawn_handler.tscn" id="3_h5in5"]
+
+[node name="Node3D" type="Node3D" unique_id=427144616]
+
+[node name="basemap" parent="." unique_id=1443388635 instance=ExtResource("1_4uwjs")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0, 0, 0)
+
+[node name="dock-magic" parent="basemap" index="16" unique_id=549177554 node_paths=PackedStringArray("TheMesh", "Collider")]
+script = ExtResource("2_61g18")
+TheMesh = NodePath(".")
+Collider = NodePath("StaticBody3D/CollisionShape3D")
+
+[node name="Player" parent="." unique_id=1403425153 instance=ExtResource("2_h5in5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49993992, 2.4126425, -10.83416)
+
+[node name="RespawnHandler" parent="." unique_id=1296465013 instance=ExtResource("3_h5in5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9710565, 0)
+
+[editable path="basemap"]

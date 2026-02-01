@@ -2,7 +2,7 @@ using Godot;
 using System;
 using EventHandler = GameJam2026Masks.scripts.EventHandler;
 
-public partial class Platform : StaticBody3D
+public partial class Platform : Node3D
 {
 	[Export] public MeshInstance3D TheMesh;
 	[Export] public CollisionShape3D Collider;
