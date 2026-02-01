@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bv2wwn5hgew4m" path="res://scenes/dialogue.tscn" id="13_f6mep"]
 [ext_resource type="PackedScene" uid="uid://2a0h15la146k" path="res://scenes/wine_imp.tscn" id="16_n36ir"]
 [ext_resource type="PackedScene" uid="uid://cb6r7qpvlbqo2" path="res://scenes/basic_throwable.tscn" id="17_bpa7s"]
+[ext_resource type="PackedScene" uid="uid://dil5kll00e5f5" path="res://scenes/ferryman.tscn" id="17_n36ir"]
 [ext_resource type="PackedScene" uid="uid://bdo27hrqgg0wm" path="res://scenes/mask_light.tscn" id="18_bpa7s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_errlg"]
@@ -107,3 +108,10 @@ ObjectName = "wine"
 
 [node name="MaskLight" parent="." unique_id=158065239 instance=ExtResource("18_bpa7s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.303955, 0.9837036, 6.0514526)
+
+[node name="Ferryman" parent="." unique_id=1507333440 instance=ExtResource("17_n36ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0911865, 1.9773932, 6.1136475)
+
+[node name="Obol" parent="." unique_id=1170361627 instance=ExtResource("17_bpa7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2556152, 2.6716309)
+ObjectName = "obol"
