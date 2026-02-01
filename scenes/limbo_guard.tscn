@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://2a0h15la146k"]
+
+[ext_resource type="Script" uid="uid://dh14lbj44jj0v" path="res://assets/scripts/interactable/FetchQuestNPC.cs" id="1_b5dbu"]
+[ext_resource type="PackedScene" uid="uid://dpgf8x87bg3so" path="res://assets/models/wineknight.glb" id="2_b5dbu"]
+[ext_resource type="PackedScene" uid="uid://bw7762s3n1vll" path="res://scenes/obol.tscn" id="3_hjmrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1poy"]
+size = Vector3(2.5729675, 2.904663, 0.8647461)
+
+[node name="LimboGuard" type="StaticBody3D" unique_id=1063038932 node_paths=PackedStringArray("HoldNode", "EnableOnComplete")]
+script = ExtResource("1_b5dbu")
+WantsObject = "wine"
+WrongObjectDialogue = "Not what I had in mind."
+OnCompleteDialogue = "Many thanks!"
+CompleteDialogue = "Many thanks!"
+HoldNode = NodePath("Node3D")
+EnableOnComplete = NodePath("Obol")
+Dialogue = "Ho there! Bring me a bottle of port and I'll trade it for my coin!"
+Speaker = "Limbo Guard"
+
+[node name="wineknight" parent="." unique_id=1092009872 instance=ExtResource("2_b5dbu")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -7.674, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1196766435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3643341, 0.33416748, 0.06762695)
+shape = SubResource("BoxShape3D_e1poy")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1950936181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4264336, 0.06353855, 0.045535088)
+
+[node name="Obol" parent="." unique_id=1894708771 instance=ExtResource("3_hjmrv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8470459, 1.4782715)
+visible = false

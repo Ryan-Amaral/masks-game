@@ -11,6 +11,7 @@ public partial class FetchQuestNPC : NPC
 	[Export] private string CompleteDialogue;
 	[Export] private Node3D HoldNode;
 
+	[Export] private Node3D EnableOnComplete;
 
 	private bool Completed = false;
 	public override void Interact(Player player)
@@ -27,6 +28,10 @@ public partial class FetchQuestNPC : NPC
 			Completed = true;
 			var obj = player.TakeHeldObject();
 			obj.Attach(HoldNode);
+			if (EnableOnComplete != null)
+			{
+				EnableOnComplete.Visible = true;
+			}
 		} else if (player.IsHoldingSomething())
 		{
 			EventHandler.OnShowDialogue?.Invoke(new DialogueInfo{Dialogue = WrongObjectDialogue, Speaker = Speaker, DisableAfter = 5f});

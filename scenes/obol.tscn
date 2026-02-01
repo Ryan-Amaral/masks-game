@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bw7762s3n1vll"]
+
+[ext_resource type="Script" uid="uid://ctlpopk541wsm" path="res://assets/scripts/interactable/Throwable.cs" id="1_mj1u7"]
+[ext_resource type="PackedScene" uid="uid://du4qmrvdow3yg" path="res://assets/models/obol.glb" id="2_hq7v7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x84re"]
+height = 0.16455078
+radius = 0.29736328
+
+[node name="Obol" type="RigidBody3D" unique_id=1894708771]
+script = ExtResource("1_mj1u7")
+ObjectName = "obol"
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1908449944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016845703, 0)
+shape = SubResource("CylinderShape3D_x84re")
+
+[node name="obol2" parent="." unique_id=1903957380 instance=ExtResource("2_hq7v7")]
