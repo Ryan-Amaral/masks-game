@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bjukliyy0u261"]
+
+[ext_resource type="Shader" path="res://assets/water.gdshader" id="1_1mykg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cbpig"]
+subdivide_width = 64
+subdivide_depth = 64
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1mykg"]
+noise_type = 3
+frequency = 0.004
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2trpe"]
+seamless = true
+as_normal_map = true
+bump_strength = 15.0
+noise = SubResource("FastNoiseLite_1mykg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2trpe"]
+noise_type = 3
+frequency = 0.001
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q27y1"]
+seamless = true
+as_normal_map = true
+bump_strength = 8.5
+noise = SubResource("FastNoiseLite_2trpe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q27y1"]
+frequency = 0.0011
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bwwk2"]
+seamless = true
+noise = SubResource("FastNoiseLite_q27y1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2trpe"]
+render_priority = 0
+shader = ExtResource("1_1mykg")
+shader_parameter/albedo = Color(0.0443822, 0.192111, 0.213618, 1)
+shader_parameter/albedo2 = Color(0.395724, 0.667355, 0.679441, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_2trpe")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_q27y1")
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.125
+shader_parameter/wave = SubResource("NoiseTexture2D_bwwk2")
+shader_parameter/noise_scale = 20.0
+shader_parameter/height_scale = 0.3
+shader_parameter/color_deep = Color(0.230023, 0.427961, 0.246102, 1)
+shader_parameter/color_shallow = Color(0.720467, 0.720468, 0.720467, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.2
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0.844698, 0.833098, 0.81728, 1)
+
+[node name="Water" type="MeshInstance3D"]
+transform = Transform3D(7.98486, 0, 0, 0, 1, 0, 0, 0, 6.66016, 0.00716871, 0.0318155, -0.0702982)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_cbpig")
+surface_material_override/0 = SubResource("ShaderMaterial_2trpe")

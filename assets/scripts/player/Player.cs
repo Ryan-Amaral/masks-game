@@ -124,10 +124,12 @@ public partial class Player : CharacterBody3D
 		{
 			if (!Interacted && CurrentThrowable != null && HoldCounter < ThrowingThreshold)
 			{
+				GD.Print("Dropped");
 				CurrentThrowable.Drop();
 				CurrentThrowable = null;
 			} else if (!Interacted && CurrentThrowable != null && HoldCounter >= ThrowingThreshold)
 			{
+				GD.Print("Throw");
 				Vector3 dir = (RayCast.GlobalTransform.Basis * RayCast.TargetPosition).Normalized();
 				CurrentThrowable.Throw(dir,ThrowForce);
 				CurrentThrowable = null;

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://crc62froepd47"]
+
+[ext_resource type="Shader" uid="uid://i0kdsb1b2xww" path="res://mainmaps/watertest/water.gdshader" id="1_elekq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_elekq")

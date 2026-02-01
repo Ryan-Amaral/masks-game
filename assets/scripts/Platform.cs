@@ -25,7 +25,7 @@ public partial class Platform : Node3D
 	}
 	
 	private void Enable(bool enabled){
-		TheMesh.Visible = enabled;
-		Collider.Disabled = !enabled;
+		TheMesh.Visible = enabled==DefaultOn;
+		Collider.Disabled = !(enabled==DefaultOn);
 	}
 }
